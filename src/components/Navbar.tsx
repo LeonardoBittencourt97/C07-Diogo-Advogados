@@ -76,20 +76,25 @@ export function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between gap-2 sm:gap-4">
-            {/* Logotipo com tamanho calibrado para a nova logo */}
-            <Link href="#inicio" className="flex items-center group focus:outline-none flex-shrink-0">
-              <div className="relative h-10 sm:h-12 w-40 sm:w-56 transition-transform duration-300 group-hover:opacity-90">
-                <Image
-                  src={logoSrc}
-                  alt="Diogo & Mazeiro Advogados e Associados"
-                  fill
-                  priority
-                  className="object-contain object-left"
-                  sizes="(max-width: 640px) 160px, 224px"
-                />
+          <div className="relative min-h-[4.25rem] sm:min-h-[4.75rem] flex items-center justify-between gap-2 sm:gap-4">
+            {/* Espaço reservado para o fluxo da barra sem ser afetado pelo tamanho da logo */}
+            <div className="w-44 sm:w-60 lg:w-72 flex-shrink-0 relative h-full flex items-center">
+              {/* Logotipo Totalmente Independente (Flutua SOBRE o menu com tamanho dobrado) */}
+              <div className="absolute left-0 top-1/2 -translate-y-1/2 z-50 pointer-events-none">
+                <Link href="#inicio" className="flex items-center group focus:outline-none pointer-events-auto">
+                  <div className="relative h-20 sm:h-24 w-72 sm:w-96 transition-transform duration-300 group-hover:scale-105">
+                    <Image
+                      src={logoSrc}
+                      alt="Diogo & Mazeiro Advogados e Associados"
+                      fill
+                      priority
+                      className="object-contain object-left drop-shadow-md"
+                      sizes="(max-width: 640px) 288px, 384px"
+                    />
+                  </div>
+                </Link>
               </div>
-            </Link>
+            </div>
 
             {/* Menu Desktop Enxuto com Submenus */}
             <nav className="hidden lg:flex items-center gap-6 xl:gap-8 text-[0.8125rem] font-heading uppercase tracking-wider">
@@ -256,14 +261,14 @@ export function Navbar() {
         >
           {/* Topo do Drawer Mobile com Botão Fechar bem nítido */}
           <div className="flex items-center justify-between pb-4 border-b border-[var(--border-subtle)]/30">
-            <div className="relative h-10 w-44">
+            <div className="relative h-20 w-72">
               <Image
                 src={logoSrc}
                 alt="Diogo & Mazeiro Advogados e Associados"
                 fill
                 priority
                 className="object-contain object-left"
-                sizes="176px"
+                sizes="288px"
               />
             </div>
 
