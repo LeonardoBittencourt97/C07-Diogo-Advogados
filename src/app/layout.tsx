@@ -21,7 +21,7 @@ const sourceSerif = Source_Serif_4({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://diogomazeiro.adv.br"),
+  metadataBase: new URL("https://diogoemezeiro-adv.vercel.app"),
   title: {
     default: "Diogo & Mazeiro Advogados e Associados | Curitiba - PR",
     template: "%s | Diogo & Mazeiro Advogados",
@@ -41,12 +41,12 @@ export const metadata: Metadata = {
   creator: "Diogo & Mazeiro Advogados e Associados",
   publisher: "Diogo & Mazeiro Advogados e Associados",
   alternates: {
-    canonical: "https://diogomazeiro.adv.br",
+    canonical: "https://diogoemezeiro-adv.vercel.app",
   },
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    url: "https://diogomazeiro.adv.br",
+    url: "https://diogoemezeiro-adv.vercel.app",
     title: "Diogo & Mazeiro Advogados e Associados | Curitiba - PR",
     description:
       "Soluções Jurídicas Estratégicas com Segurança, Rigor Técnico e Transparência. Mais de 8 anos de experiência corporativa e contenciosa.",

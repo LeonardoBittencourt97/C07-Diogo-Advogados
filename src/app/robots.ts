@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://diogomazeiro.adv.br/sitemap.xml",
+    sitemap: "https://diogoemezeiro-adv.vercel.app/sitemap.xml",
   };
 }

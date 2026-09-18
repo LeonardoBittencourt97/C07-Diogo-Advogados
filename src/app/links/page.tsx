@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description:
     "Acesse rapidamente o WhatsApp oficial, Instagram, endereço e website institucional do Diogo & Mazeiro Advogados e Associados em Curitiba/PR.",
   alternates: {
-    canonical: "https://diogomazeiro.adv.br/links",
+    canonical: "https://diogoemezeiro-adv.vercel.app/links",
   },
 };
 
