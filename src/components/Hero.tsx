@@ -8,7 +8,7 @@ export function Hero() {
   return (
     <section
       id="inicio"
-      className="relative min-h-screen w-full flex flex-col justify-center pt-20 pb-8 sm:pt-32 sm:pb-16 lg:pt-36 lg:pb-24 overflow-hidden editorial-border-b"
+      className="relative min-h-[100dvh] w-full flex flex-col justify-center pt-20 pb-8 sm:pt-32 sm:pb-16 lg:pt-36 lg:pb-24 overflow-hidden editorial-border-b"
     >
       {/* ========================================================================= */}
       {/* 1. IMAGEM DE FUNDO 100% DA TELA (MOBILE E DESKTOP DEDICADOS)               */}
@@ -47,55 +47,55 @@ export function Hero() {
       {/* 2. CONTEÚDO EDITORIAL DA HERO SOBREPOSTO À IMAGEM                          */}
       {/* ========================================================================= */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full my-auto">
-        {/* Cabeçalho de seção editorial no estilo suíço */}
-        <div className="flex items-center justify-between py-1.5 border-b border-white/20 mb-4 sm:mb-10 text-white/90">
+        {/* Cabeçalho de seção editorial (estilo suíço refinado no desktop e compacto no mobile) */}
+        <div className="hidden sm:flex items-center justify-between py-1.5 border-b border-white/20 mb-6 lg:mb-10 text-white/90">
           <div className="flex items-center gap-2 sm:gap-3">
             <span className="bullet-indicator text-emerald-400" />
-            <span className="font-heading uppercase text-[0.6875rem] sm:text-xs tracking-widest text-white/80 font-bold">
+            <span className="font-heading uppercase text-xs tracking-widest text-white/80 font-bold">
               Curitiba / Paraná • Advocacia de Prestígio
             </span>
           </div>
-          <span className="font-heading text-[0.6875rem] sm:text-xs uppercase tracking-widest text-white/70">
+          <span className="font-heading text-xs uppercase tracking-widest text-white/70">
             Fundado há +8 anos
           </span>
         </div>
 
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-8 items-start">
-          {/* Coluna Principal de Texto */}
+          {/* Coluna Principal de Conteúdo */}
           <div className="lg:col-span-8 flex flex-col">
-            {/* Badge de OAB e Solidez */}
-            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full border border-white/25 bg-black/40 backdrop-blur-md text-[0.6875rem] sm:text-xs font-heading uppercase tracking-wider text-white w-fit mb-3 sm:mb-5 shadow-sm">
+            {/* Badge de OAB e Solidez (Sem caixa alta agressiva no mobile) */}
+            <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full border border-white/25 bg-black/40 backdrop-blur-md text-[0.7rem] sm:text-xs font-heading normal-case sm:uppercase tracking-normal sm:tracking-wider text-white w-fit mb-2.5 sm:mb-5 shadow-sm">
               <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400" />
               <span>{OFFICE_INFO.oabList}</span>
             </div>
 
-            {/* Título Principal Readequado (Sem caixa alta agressiva no mobile, leitura rápida) */}
-            <h1 className="font-heading text-2xl sm:text-4xl md:text-5xl lg:text-7xl leading-tight sm:leading-[1.04] tracking-tight text-white mb-3 sm:mb-5 drop-shadow-md">
+            {/* Título Principal Readequado (Sem caixa alta, proporcional e perfeitamente ajustado no mobile) */}
+            <h1 className="font-heading normal-case text-2xl sm:text-4xl md:text-5xl lg:text-7xl leading-tight sm:leading-[1.04] tracking-tight text-white mb-2.5 sm:mb-5 drop-shadow-md font-semibold">
               Soluções Jurídicas{" "}
               <span className="text-emerald-400">Estratégicas</span>{" "}
               com Segurança, Rigor Técnico e Transparência.
             </h1>
 
-            {/* Subtítulo Editorial Serifado Readequado para caber perfeitamente no mobile */}
+            {/* Subtítulo Editorial Readequado para ocupar poucas linhas no mobile */}
             <p className="font-body text-xs sm:text-base lg:text-xl text-gray-200 max-w-2xl leading-relaxed mb-4 sm:mb-8 font-normal drop-shadow-sm">
-              Mais de 8 anos de solidez em Curitiba e atuação nacional no contencioso e consultivo empresarial, trabalhista, cível e execuções de alto impacto.
+              Mais de 8 anos de solidez em Curitiba e atuação nacional especializada no contencioso e consultivo empresarial, trabalhista e cível de alto impacto.
             </p>
 
-            {/* Ações de Conversão: Ambos os botões com visibilidade imediata no mobile */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-6 pt-1 sm:pt-2 w-full max-w-lg">
+            {/* Ações de Conversão: Ambos os botões com visibilidade imediata garantida no mobile */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-6 pt-1 w-full max-w-lg">
               <a
                 href={OFFICE_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-pill bg-[#143525] hover:bg-[#0d2319] text-white border border-emerald-600/40 gap-2 sm:gap-3 py-3 sm:py-4 px-5 sm:px-8 text-xs sm:text-base shadow-xl group transition-all text-center justify-center"
+                className="btn-pill normal-case sm:uppercase bg-[#143525] hover:bg-[#0d2319] text-white border border-emerald-500/50 gap-2 py-3 sm:py-4 px-4 sm:px-8 text-xs sm:text-base font-medium tracking-normal sm:tracking-wider shadow-xl group transition-all text-center justify-center flex items-center"
               >
-                <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5 text-white/90 group-hover:scale-110 transition-transform flex-shrink-0" />
+                <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-300 group-hover:scale-110 transition-transform flex-shrink-0" />
                 <span>Falar com Advogado via WhatsApp</span>
               </a>
 
               <a
                 href="#sobre"
-                className="btn-pill border border-white/35 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white gap-2 py-2.5 sm:py-4 px-5 sm:px-6 text-xs sm:text-sm group transition-all text-center justify-center"
+                className="btn-pill normal-case sm:uppercase border border-white/35 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white gap-2 py-2.5 sm:py-4 px-4 sm:px-6 text-xs sm:text-sm font-medium tracking-normal sm:tracking-wider group transition-all text-center justify-center flex items-center"
               >
                 <span>Conhecer o Escritório</span>
                 <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400 group-hover:translate-x-1 transition-transform" />
@@ -103,8 +103,8 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Coluna Lateral Editorial com Métricas de Solidez */}
-          <div className="lg:col-span-4 flex flex-col lg:border-l border-white/20 lg:pl-8">
+          {/* Coluna Lateral Editorial com Métricas de Solidez (Exibida no desktop ao lado do texto; oculta no mobile para manter os botões 100% visíveis na primeira dobra) */}
+          <div className="hidden lg:flex lg:col-span-4 flex-col lg:border-l border-white/20 lg:pl-8">
             <div className="bg-black/55 backdrop-blur-md p-6 sm:p-8 rounded-3xl border border-white/20 shadow-2xl">
               <div className="flex items-center justify-between pb-4 border-b border-white/20 mb-6 text-white">
                 <span className="font-heading uppercase text-xs tracking-widest text-emerald-400 font-bold">

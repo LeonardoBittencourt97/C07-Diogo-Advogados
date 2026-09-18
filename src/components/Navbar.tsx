@@ -72,16 +72,16 @@ export function Navbar() {
       {/* 1. LOGO TOTALMENTE INDEPENDENTE (BLOCO AUTÔNOMO FORA DO HEADER DO MENU)   */}
       {/* Mudar o tamanho ou posição da logo NÃO altera em nada a barra do menu     */}
       {/* ========================================================================= */}
-      <div className="fixed top-2.5 sm:top-3 left-3 sm:left-6 lg:left-8 z-50 pointer-events-none">
+      <div className="fixed top-2 sm:top-3 left-3 sm:left-6 lg:left-8 z-50 pointer-events-none">
         <Link href="#inicio" className="flex items-center group focus:outline-none pointer-events-auto">
-          <div className="relative h-16 sm:h-20 lg:h-24 w-52 sm:w-72 lg:w-96 transition-transform duration-300 group-hover:scale-105">
+          <div className="relative h-13 sm:h-20 lg:h-24 w-44 sm:w-72 lg:w-96 transition-transform duration-300 group-hover:scale-105">
             <Image
               src={logoSrc}
               alt="Diogo & Mazeiro Advogados e Associados"
               fill
               priority
               className="object-contain object-left drop-shadow-md"
-              sizes="(max-width: 640px) 208px, 384px"
+              sizes="(max-width: 640px) 176px, 384px"
             />
           </div>
         </Link>
@@ -236,7 +236,7 @@ export function Navbar() {
                 href={OFFICE_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-pill bg-[var(--accent)] text-white hover:bg-[var(--accent-hover)] transition-all duration-300 gap-1.5 shadow-xs text-xs px-3 sm:px-5 py-2 sm:py-2.5 flex-shrink-0"
+                className="btn-pill normal-case sm:uppercase bg-[var(--accent)] text-white hover:bg-[var(--accent-hover)] transition-all duration-300 gap-1.5 shadow-xs text-xs px-2.5 sm:px-5 py-2 sm:py-2.5 flex-shrink-0"
               >
                 <MessageSquare className="w-3.5 h-3.5" />
                 <span className="hidden sm:inline">WhatsApp</span>
