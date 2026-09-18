@@ -17,6 +17,10 @@ export function Navbar() {
   const [officeDropdownOpen, setOfficeDropdownOpen] = useState(false);
   const [areasDropdownOpen, setAreasDropdownOpen] = useState(false);
 
+  // Estados dos submenus no mobile (Accordions)
+  const [mobileOfficeOpen, setMobileOfficeOpen] = useState(false);
+  const [mobileAreasOpen, setMobileAreasOpen] = useState(false);
+
   const officeRef = useRef<HTMLDivElement>(null);
   const areasRef = useRef<HTMLDivElement>(null);
 
@@ -56,7 +60,11 @@ export function Navbar() {
   }, [mobileMenuOpen]);
 
   const logoSrc = theme === "dark" ? "/logo_semfundo_branca.png" : "/logo_semfundo_preta.png";
-  const closeMobileMenu = () => setMobileMenuOpen(false);
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+    setMobileOfficeOpen(false);
+    setMobileAreasOpen(false);
+  };
 
   return (
     <>
@@ -269,36 +277,151 @@ export function Navbar() {
             </button>
           </div>
 
-          {/* Links do Menu Mobile com Estilo Editorial Suíço */}
-          <div className="my-auto py-6 space-y-1">
-            <span className="font-heading uppercase text-[0.6875rem] tracking-widest text-[var(--border-subtle)] block mb-3">
+          {/* Links do Menu Mobile com Estilo Editorial Suíço e Submenus Retráteis */}
+          <div className="my-auto py-4 space-y-1">
+            <span className="font-heading uppercase text-[0.6875rem] tracking-widest text-[var(--border-subtle)] block mb-3 font-bold">
               Navegação Principal
             </span>
 
-            {[
-              { num: "01", label: "Início", href: "#inicio" },
-              { num: "02", label: "Sobre o Escritório", href: "#sobre" },
-              { num: "03", label: "Corpo Jurídico", href: "#equipe" },
-              { num: "04", label: "Áreas de Atuação", href: "#areas" },
-              { num: "05", label: "Artigos Educativos", href: "#artigos" },
-              { num: "06", label: "Avaliações Públicas", href: "#avaliacoes" },
-              { num: "07", label: "Como Atuamos", href: "#processo" },
-              { num: "08", label: "Perguntas Frequentes (FAQ)", href: "#faq" },
-              { num: "09", label: "Contato & Localização", href: "#contato" },
-            ].map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={closeMobileMenu}
-                className="flex items-center justify-between py-2.5 border-b border-[var(--border-subtle)]/15 font-heading text-lg uppercase tracking-wide text-[var(--text-main)] hover:text-[var(--accent)] transition-colors"
+            {/* 01. Início */}
+            <a
+              href="#inicio"
+              onClick={closeMobileMenu}
+              className="flex items-center justify-between py-2.5 border-b border-[var(--border-subtle)]/15 font-heading text-base uppercase tracking-wide text-[var(--text-main)] hover:text-[var(--accent)] transition-colors"
+            >
+              <div className="flex items-center gap-2.5">
+                <span className="text-xs text-[var(--border-subtle)] font-bold">01.</span>
+                <span>Início</span>
+              </div>
+              <span className="bullet-indicator text-[var(--border-subtle)]" />
+            </a>
+
+            {/* 02. O Escritório (Submenu Retrátil) */}
+            <div className="border-b border-[var(--border-subtle)]/15 py-1">
+              <button
+                type="button"
+                onClick={() => setMobileOfficeOpen(!mobileOfficeOpen)}
+                className="w-full flex items-center justify-between py-2 font-heading text-base uppercase tracking-wide text-[var(--text-main)] hover:text-[var(--accent)] transition-colors cursor-pointer"
               >
-                <div className="flex items-center gap-3">
-                  <span className="text-xs text-[var(--border-subtle)] font-bold">{item.num}.</span>
-                  <span>{item.label}</span>
+                <div className="flex items-center gap-2.5">
+                  <span className="text-xs text-[var(--border-subtle)] font-bold">02.</span>
+                  <span>O Escritório</span>
                 </div>
-                <span className="bullet-indicator text-[var(--border-subtle)]" />
-              </a>
-            ))}
+                <ChevronDown
+                  className={`w-4 h-4 text-[var(--border-subtle)] transition-transform duration-200 ${
+                    mobileOfficeOpen ? "rotate-180 text-[var(--accent)]" : ""
+                  }`}
+                />
+              </button>
+
+              {mobileOfficeOpen && (
+                <div className="pl-6 pb-2 pt-1 space-y-2 animate-in fade-in duration-150">
+                  <a
+                    href="#sobre"
+                    onClick={closeMobileMenu}
+                    className="flex items-center justify-between py-1.5 text-xs font-heading uppercase tracking-wider text-[var(--text-muted)] hover:text-[var(--text-main)]"
+                  >
+                    <span>Sobre Nós & Pilares</span>
+                    <span className="bullet-indicator text-[var(--border-subtle)]/60" />
+                  </a>
+                  <a
+                    href="#equipe"
+                    onClick={closeMobileMenu}
+                    className="flex items-center justify-between py-1.5 text-xs font-heading uppercase tracking-wider text-[var(--text-muted)] hover:text-[var(--text-main)]"
+                  >
+                    <span>Corpo Jurídico</span>
+                    <span className="bullet-indicator text-[var(--border-subtle)]/60" />
+                  </a>
+                  <a
+                    href="#processo"
+                    onClick={closeMobileMenu}
+                    className="flex items-center justify-between py-1.5 text-xs font-heading uppercase tracking-wider text-[var(--text-muted)] hover:text-[var(--text-main)]"
+                  >
+                    <span>Como Atuamos</span>
+                    <span className="bullet-indicator text-[var(--border-subtle)]/60" />
+                  </a>
+                </div>
+              )}
+            </div>
+
+            {/* 03. Atuação & Conteúdo (Submenu Retrátil) */}
+            <div className="border-b border-[var(--border-subtle)]/15 py-1">
+              <button
+                type="button"
+                onClick={() => setMobileAreasOpen(!mobileAreasOpen)}
+                className="w-full flex items-center justify-between py-2 font-heading text-base uppercase tracking-wide text-[var(--text-main)] hover:text-[var(--accent)] transition-colors cursor-pointer"
+              >
+                <div className="flex items-center gap-2.5">
+                  <span className="text-xs text-[var(--border-subtle)] font-bold">03.</span>
+                  <span>Atuação & Conteúdo</span>
+                </div>
+                <ChevronDown
+                  className={`w-4 h-4 text-[var(--border-subtle)] transition-transform duration-200 ${
+                    mobileAreasOpen ? "rotate-180 text-[var(--accent)]" : ""
+                  }`}
+                />
+              </button>
+
+              {mobileAreasOpen && (
+                <div className="pl-6 pb-2 pt-1 space-y-2 animate-in fade-in duration-150">
+                  <a
+                    href="#areas"
+                    onClick={closeMobileMenu}
+                    className="flex items-center justify-between py-1.5 text-xs font-heading uppercase tracking-wider text-[var(--text-muted)] hover:text-[var(--text-main)]"
+                  >
+                    <span>Áreas de Atuação</span>
+                    <span className="bullet-indicator text-[var(--border-subtle)]/60" />
+                  </a>
+                  <a
+                    href="#artigos"
+                    onClick={closeMobileMenu}
+                    className="flex items-center justify-between py-1.5 text-xs font-heading uppercase tracking-wider text-[var(--text-muted)] hover:text-[var(--text-main)]"
+                  >
+                    <span>Artigos Educativos (OAB)</span>
+                    <span className="bullet-indicator text-[var(--border-subtle)]/60" />
+                  </a>
+                </div>
+              )}
+            </div>
+
+            {/* 04. Avaliações */}
+            <a
+              href="#avaliacoes"
+              onClick={closeMobileMenu}
+              className="flex items-center justify-between py-2.5 border-b border-[var(--border-subtle)]/15 font-heading text-base uppercase tracking-wide text-[var(--text-main)] hover:text-[var(--accent)] transition-colors"
+            >
+              <div className="flex items-center gap-2.5">
+                <span className="text-xs text-[var(--border-subtle)] font-bold">04.</span>
+                <span>Avaliações</span>
+              </div>
+              <span className="bullet-indicator text-[var(--border-subtle)]" />
+            </a>
+
+            {/* 05. Perguntas Frequentes (FAQ) */}
+            <a
+              href="#faq"
+              onClick={closeMobileMenu}
+              className="flex items-center justify-between py-2.5 border-b border-[var(--border-subtle)]/15 font-heading text-base uppercase tracking-wide text-[var(--text-main)] hover:text-[var(--accent)] transition-colors"
+            >
+              <div className="flex items-center gap-2.5">
+                <span className="text-xs text-[var(--border-subtle)] font-bold">05.</span>
+                <span>Perguntas Frequentes</span>
+              </div>
+              <span className="bullet-indicator text-[var(--border-subtle)]" />
+            </a>
+
+            {/* 06. Contato & Localização */}
+            <a
+              href="#contato"
+              onClick={closeMobileMenu}
+              className="flex items-center justify-between py-2.5 border-b border-[var(--border-subtle)]/15 font-heading text-base uppercase tracking-wide text-[var(--text-main)] hover:text-[var(--accent)] transition-colors"
+            >
+              <div className="flex items-center gap-2.5">
+                <span className="text-xs text-[var(--border-subtle)] font-bold">06.</span>
+                <span>Contato & Localização</span>
+              </div>
+              <span className="bullet-indicator text-[var(--border-subtle)]" />
+            </a>
           </div>
 
           {/* Rodapé do Menu Mobile */}

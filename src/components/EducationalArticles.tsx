@@ -171,27 +171,16 @@ export function EducationalArticles() {
 
                 {/* Botões da Base do Card no Mobile */}
                 {!isExpanded ? (
-                  <div className="grid grid-cols-2 gap-2 pt-3 border-t border-[var(--border-subtle)]/20">
-                    {/* Botão Esquerdo: Saber Mais */}
+                  <div className="pt-3 border-t border-[var(--border-subtle)]/20">
+                    {/* Apenas o Botão Saber Mais quando o card está recolhido */}
                     <button
                       type="button"
                       onClick={() => toggleExpand(art.id)}
-                      className="btn-pill py-2.5 px-3 text-xs border border-[var(--border-subtle)]/40 text-[var(--text-main)] hover:bg-[var(--bg-secondary)] gap-1 justify-center cursor-pointer"
+                      className="w-full btn-pill py-2.5 px-4 text-xs border border-[var(--border-subtle)]/40 text-[var(--text-main)] hover:bg-[var(--bg-secondary)] gap-2 justify-center cursor-pointer font-heading uppercase font-semibold transition-colors"
                     >
                       <span>Saber Mais</span>
-                      <ChevronDown className="w-3.5 h-3.5 text-[var(--border-subtle)]" />
+                      <ChevronDown className="w-4 h-4 text-[var(--border-subtle)]" />
                     </button>
-
-                    {/* Botão Direito: Conversar com Advogado */}
-                    <a
-                      href={`${OFFICE_INFO.whatsappUrl}&text=Ol%C3%A1%2C%20li%20o%20artigo%20sobre%20${encodeURIComponent(art.title)}%20e%20gostaria%20de%20informa%C3%A7%C3%B5es`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn-pill py-2.5 px-2 text-[0.6875rem] bg-[var(--accent)] text-white hover:bg-[var(--accent-hover)] gap-1 justify-center text-center font-heading uppercase font-semibold leading-tight"
-                    >
-                      <MessageSquare className="w-3 h-3 flex-shrink-0" />
-                      <span>Conversar com Advogado</span>
-                    </a>
                   </div>
                 ) : (
                   <div className="grid grid-cols-2 gap-2 pt-3 border-t border-[var(--border-subtle)]/20">
@@ -199,20 +188,20 @@ export function EducationalArticles() {
                     <button
                       type="button"
                       onClick={() => toggleExpand(art.id)}
-                      className="btn-pill py-2.5 px-3 text-xs border border-[var(--border-subtle)]/40 text-[var(--text-main)] hover:bg-[var(--bg-secondary)] gap-1 justify-center cursor-pointer"
+                      className="btn-pill py-2.5 px-3 text-xs border border-[var(--border-subtle)]/40 text-[var(--text-main)] hover:bg-[var(--bg-secondary)] gap-1.5 justify-center cursor-pointer font-heading uppercase font-semibold transition-colors"
                     >
                       <span>Voltar ao normal</span>
                       <ChevronUp className="w-3.5 h-3.5 text-[var(--border-subtle)]" />
                     </button>
 
-                    {/* Botão Direito: Conversar com Advogado */}
+                    {/* Botão Direito: Conversar com Advogado (apenas quando expandido) */}
                     <a
                       href={`${OFFICE_INFO.whatsappUrl}&text=Ol%C3%A1%2C%20li%20o%20artigo%20sobre%20${encodeURIComponent(art.title)}%20e%20gostaria%20de%20informa%C3%A7%C3%B5es`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn-pill py-2.5 px-2 text-[0.6875rem] bg-[var(--accent)] text-white hover:bg-[var(--accent-hover)] gap-1 justify-center text-center font-heading uppercase font-semibold leading-tight"
+                      className="btn-pill py-2.5 px-2 text-[0.6875rem] bg-[var(--accent)] text-white hover:bg-[var(--accent-hover)] gap-1.5 justify-center text-center font-heading uppercase font-semibold leading-tight shadow-xs"
                     >
-                      <MessageSquare className="w-3 h-3 flex-shrink-0" />
+                      <MessageSquare className="w-3.5 h-3.5 flex-shrink-0" />
                       <span>Conversar com Advogado</span>
                     </a>
                   </div>
