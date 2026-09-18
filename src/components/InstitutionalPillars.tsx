@@ -1,0 +1,78 @@
+"use client";
+
+import { Scale, Award, ShieldCheck } from "lucide-react";
+
+export function InstitutionalPillars() {
+  return (
+    <section
+      id="pilares"
+      className="w-full border-b border-[var(--border-subtle)]/30 bg-[var(--bg-card)] py-10 sm:py-16 relative z-10 shadow-xs"
+    >
+      <div className="w-full px-6 sm:px-12 lg:px-20 xl:px-28">
+        {/* Cabeçalho Editorial Sutil */}
+        <div className="flex items-center justify-between pb-4 border-b border-[var(--border-subtle)]/25 mb-8 text-[var(--border-subtle)]">
+          <div className="flex items-center gap-2.5">
+            <Scale className="w-4 h-4 text-[var(--accent)] dark:text-emerald-400" />
+            <span className="font-heading uppercase text-xs tracking-widest font-bold">
+              Pilares Institucionais de Atuação
+            </span>
+          </div>
+          <span className="font-heading uppercase text-xs tracking-wider text-[var(--border-subtle)] hidden sm:inline">
+            Curitiba / Paraná • Atuação Nacional
+          </span>
+        </div>
+
+        {/* Grade com os 3 Pilares em Divisões Horizontais / Verticais */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 divide-y md:divide-y-0 md:divide-x divide-[var(--border-subtle)]/30 w-full">
+          {/* Pilar 1 */}
+          <div className="flex flex-col items-start px-0 md:px-6 pt-6 md:pt-0">
+            <div className="flex items-center gap-2 mb-2 text-[var(--accent)] dark:text-emerald-400">
+              <Award className="w-4 h-4" />
+              <span className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">
+                +8 Anos
+              </span>
+            </div>
+            <h3 className="font-heading text-base font-semibold text-[var(--text-main)] mb-1.5">
+              Experiência e Solidez Jurídica
+            </h3>
+            <p className="font-body text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed">
+              Orientação contínua a empresas, instituições financeiras e famílias em todo o Paraná e no âmbito nacional.
+            </p>
+          </div>
+
+          {/* Pilar 2 */}
+          <div className="flex flex-col items-start px-0 md:px-6 pt-6 md:pt-0">
+            <div className="flex items-center gap-2 mb-2 text-[var(--accent)] dark:text-emerald-400">
+              <ShieldCheck className="w-4 h-4" />
+              <span className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">
+                100% Técnico
+              </span>
+            </div>
+            <h3 className="font-heading text-base font-semibold text-[var(--text-main)] mb-1.5">
+              Atendimento Direto com os Sócios
+            </h3>
+            <p className="font-body text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed">
+              Condução dinâmica com teses individualizadas, comunicação transparente e respeito rigoroso ao CFOAB.
+            </p>
+          </div>
+
+          {/* Pilar 3 */}
+          <div className="flex flex-col items-start px-0 md:px-6 pt-6 md:pt-0">
+            <div className="flex items-center gap-2 mb-2 text-[var(--accent)] dark:text-emerald-400">
+              <Scale className="w-4 h-4" />
+              <span className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">
+                Sede Própria
+              </span>
+            </div>
+            <h3 className="font-heading text-base font-semibold text-[var(--text-main)] mb-1.5">
+              Estrutura em Curitiba / PR
+            </h3>
+            <p className="font-body text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed">
+              Edifício Empresarial no Capão Raso com estrutura completa para audiências híbridas e reuniões presenciais.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

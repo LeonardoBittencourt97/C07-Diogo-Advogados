@@ -243,59 +243,7 @@ export function About() {
       </div>
 
       {/* ========================================================================= */}
-      {/* B- PILARES DE ATUAÇÃO ESTRATÉGICA (Integrados no padrão das métricas)     */}
-      {/* ========================================================================= */}
-      <div className="w-full mt-10 sm:mt-14 border-y border-[var(--border-subtle)]/40 bg-[var(--bg-card)] shadow-xs">
-        <div className="w-full px-6 sm:px-12 lg:px-20 xl:px-28 py-10 sm:py-14">
-          <div className="flex items-center gap-2.5 mb-8 pb-3 border-b border-[var(--border-subtle)]/25">
-            <Scale className="w-4 h-4 text-[var(--accent)] dark:text-emerald-400" />
-            <span className="font-heading uppercase text-xs tracking-widest text-[var(--border-subtle)] font-bold">
-              Pilares Institucionais de Atuação
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 divide-y md:divide-y-0 md:divide-x divide-[var(--border-subtle)]/30 w-full">
-            <div className="flex flex-col items-start px-0 md:px-6 pt-6 md:pt-0">
-              <span className="font-heading text-2xl sm:text-3xl lg:text-4xl text-[var(--accent)] dark:text-emerald-400 font-bold mb-1.5 tracking-tight">
-                +8 Anos
-              </span>
-              <span className="font-heading text-sm font-semibold text-[var(--text-main)] mb-1">
-                Experiência e Solidez Jurídica
-              </span>
-              <p className="font-body text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed">
-                Orientação contínua a empresas, instituições financeiras e famílias em todo o Paraná e no âmbito nacional.
-              </p>
-            </div>
-
-            <div className="flex flex-col items-start px-0 md:px-6 pt-6 md:pt-0">
-              <span className="font-heading text-2xl sm:text-3xl lg:text-4xl text-[var(--accent)] dark:text-emerald-400 font-bold mb-1.5 tracking-tight">
-                100% Técnico
-              </span>
-              <span className="font-heading text-sm font-semibold text-[var(--text-main)] mb-1">
-                Atendimento Direto com os Sócios
-              </span>
-              <p className="font-body text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed">
-                Condução dinâmica com teses individualizadas, comunicação transparente e respeito rigoroso ao CFOAB.
-              </p>
-            </div>
-
-            <div className="flex flex-col items-start px-0 md:px-6 pt-6 md:pt-0">
-              <span className="font-heading text-2xl sm:text-3xl lg:text-4xl text-[var(--accent)] dark:text-emerald-400 font-bold mb-1.5 tracking-tight">
-                Sede Própria
-              </span>
-              <span className="font-heading text-sm font-semibold text-[var(--text-main)] mb-1">
-                Estrutura em Curitiba / PR
-              </span>
-              <p className="font-body text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed">
-                Edifício Empresarial no Capão Raso com estrutura completa para audiências híbridas e reuniões presenciais.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* ========================================================================= */}
-      {/* C- INDICADORES NUMÉRICOS READEQUADOS (Sem caixa alta, equilibrados)       */}
+      {/* B- INDICADORES NUMÉRICOS READEQUADOS (Sem caixa alta, equilibrados)       */}
       {/* ========================================================================= */}
       <div
         ref={metricsRef}
