@@ -20,7 +20,7 @@ export function Navbar() {
   const officeRef = useRef<HTMLDivElement>(null);
   const areasRef = useRef<HTMLDivElement>(null);
 
-  // Fecha dropdowns se clicar fora no desktop
+  // Fecha dropdowns ao clicar fora no desktop
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (officeRef.current && !officeRef.current.contains(event.target as Node)) {
@@ -34,7 +34,7 @@ export function Navbar() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Controla o background no scroll
+  // Background ao rolar a página
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -43,7 +43,7 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Trava a rolagem do body quando o menu mobile está aberto
+  // Trava scroll do body com menu mobile aberto
   useEffect(() => {
     if (mobileMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -56,7 +56,6 @@ export function Navbar() {
   }, [mobileMenuOpen]);
 
   const logoSrc = theme === "dark" ? "/logo_semfundo_branca.png" : "/logo_semfundo_preta.png";
-
   const closeMobileMenu = () => setMobileMenuOpen(false);
 
   return (
@@ -64,28 +63,28 @@ export function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           isScrolled
-            ? "bg-[var(--bg-primary)]/92 backdrop-blur-md shadow-xs editorial-border-b py-3"
-            : "bg-transparent py-5"
+            ? "bg-[var(--bg-primary)]/95 backdrop-blur-md shadow-xs editorial-border-b py-2.5 sm:py-3"
+            : "bg-transparent py-4 sm:py-5"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between">
-            {/* Logotipo */}
-            <Link href="#inicio" className="flex items-center gap-3 group focus:outline-none flex-shrink-0">
-              <div className="relative h-11 w-44 sm:w-52 transition-transform duration-300 group-hover:opacity-90">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between gap-2 sm:gap-4">
+            {/* Logotipo com tamanho calibrado para não espremer botões */}
+            <Link href="#inicio" className="flex items-center group focus:outline-none flex-shrink-0">
+              <div className="relative h-9 sm:h-11 w-36 sm:w-52 transition-transform duration-300 group-hover:opacity-90">
                 <Image
                   src={logoSrc}
                   alt="Diogo & Mazeiro Advogados e Associados"
                   fill
                   priority
                   className="object-contain object-left"
-                  sizes="(max-width: 640px) 176px, 208px"
+                  sizes="(max-width: 640px) 144px, 208px"
                 />
               </div>
             </Link>
 
             {/* Menu Desktop Enxuto com Submenus */}
-            <nav className="hidden lg:flex items-center gap-7 text-[0.8125rem] font-heading uppercase tracking-wider">
+            <nav className="hidden lg:flex items-center gap-6 xl:gap-8 text-[0.8125rem] font-heading uppercase tracking-wider">
               <a
                 href="#inicio"
                 className="text-[var(--text-main)]/85 hover:text-[var(--text-main)] transition-colors editorial-link"
@@ -209,39 +208,45 @@ export function Navbar() {
               </a>
             </nav>
 
-            {/* Ações: Toggle, Botão WhatsApp e Botão Mobile */}
-            <div className="flex items-center gap-3">
+            {/* Ações à Direita: Toggle, WhatsApp e Botão Hambúrguer Mobile GARANTIDO */}
+            <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
               <ThemeToggle />
 
-              {/* Botão de WhatsApp (apenas "WhatsApp" conforme solicitação) */}
+              {/* Botão de WhatsApp: Adaptável para caber no mobile sem esconder o menu */}
               <a
                 href={OFFICE_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-pill bg-[var(--accent)] text-white hover:bg-[var(--accent-hover)] transition-all duration-300 gap-2 shadow-xs text-xs sm:text-sm px-4 sm:px-6 py-2.5"
+                className="btn-pill bg-[var(--accent)] text-white hover:bg-[var(--accent-hover)] transition-all duration-300 gap-1.5 shadow-xs text-xs px-3 sm:px-5 py-2 sm:py-2.5 flex-shrink-0"
               >
-                <MessageSquare className="w-4 h-4" />
-                <span>WhatsApp</span>
+                <MessageSquare className="w-3.5 h-3.5" />
+                <span className="hidden sm:inline">WhatsApp</span>
+                <span className="sm:hidden text-[0.6875rem]">Whats</span>
               </a>
 
-              {/* Botão Menu Mobile */}
+              {/* Botão Menu Mobile PROEMINENTE - Sempre visível em telas menores que lg */}
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(true)}
-                className="lg:hidden p-2.5 rounded-full border border-[var(--border-subtle)]/40 text-[var(--text-main)] hover:bg-[var(--bg-card)] transition-colors cursor-pointer"
+                className="lg:hidden flex items-center justify-center p-2 rounded-xl border border-[var(--border-subtle)]/50 bg-[var(--bg-card)] text-[var(--text-main)] hover:border-[var(--accent)] shadow-2xs transition-colors flex-shrink-0 cursor-pointer"
                 aria-label="Abrir menu de navegação"
+                id="btn-mobile-menu"
               >
-                <Menu className="w-5 h-5" />
+                <Menu className="w-5 h-5 text-[var(--text-main)]" />
               </button>
             </div>
           </div>
         </div>
       </header>
 
-      {/* ======================= MENU MOBILE REFINADO (Off-Canvas Fullscreen) ======================= */}
+      {/* ======================= MENU MOBILE FULLSCREEN REFINADO ======================= */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-[100] bg-[var(--bg-primary)] text-[var(--text-main)] flex flex-col justify-between p-6 overflow-y-auto animate-in fade-in zoom-in-95 duration-200">
-          {/* Topo do Drawer Mobile */}
+        <div
+          role="dialog"
+          aria-modal="true"
+          className="fixed inset-0 z-[100] bg-[var(--bg-primary)] text-[var(--text-main)] flex flex-col justify-between p-6 overflow-y-auto animate-in fade-in duration-200"
+        >
+          {/* Topo do Drawer Mobile com Botão Fechar bem nítido */}
           <div className="flex items-center justify-between pb-4 border-b border-[var(--border-subtle)]/30">
             <div className="relative h-10 w-44">
               <Image
@@ -257,15 +262,15 @@ export function Navbar() {
             <button
               type="button"
               onClick={closeMobileMenu}
-              className="p-2.5 rounded-full border border-[var(--border-subtle)]/40 hover:bg-[var(--bg-card)] transition-colors cursor-pointer"
+              className="p-2.5 rounded-full border border-[var(--border-subtle)]/40 hover:bg-[var(--bg-card)] transition-colors cursor-pointer bg-[var(--bg-card)] text-[var(--text-main)] shadow-sm"
               aria-label="Fechar menu"
             >
               <X className="w-6 h-6 text-[var(--text-main)]" />
             </button>
           </div>
 
-          {/* Links do Menu Mobile com Estilo Editorial Suíço davidlaxer.com */}
-          <div className="my-auto py-6 space-y-2">
+          {/* Links do Menu Mobile com Estilo Editorial Suíço */}
+          <div className="my-auto py-6 space-y-1">
             <span className="font-heading uppercase text-[0.6875rem] tracking-widest text-[var(--border-subtle)] block mb-3">
               Navegação Principal
             </span>
@@ -285,7 +290,7 @@ export function Navbar() {
                 key={item.href}
                 href={item.href}
                 onClick={closeMobileMenu}
-                className="flex items-center justify-between py-2 border-b border-[var(--border-subtle)]/15 font-heading text-lg uppercase tracking-wide text-[var(--text-main)] hover:text-[var(--accent)] transition-colors"
+                className="flex items-center justify-between py-2.5 border-b border-[var(--border-subtle)]/15 font-heading text-lg uppercase tracking-wide text-[var(--text-main)] hover:text-[var(--accent)] transition-colors"
               >
                 <div className="flex items-center gap-3">
                   <span className="text-xs text-[var(--border-subtle)] font-bold">{item.num}.</span>

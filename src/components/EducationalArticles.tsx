@@ -1,12 +1,22 @@
-import { EDUCATIONAL_ARTICLES } from "@/lib/data";
-import { BookOpen, Clock, ShieldCheck } from "lucide-react";
+"use client";
+
+import { useState } from "react";
+import { EDUCATIONAL_ARTICLES, OFFICE_INFO } from "@/lib/data";
+import { BookOpen, Clock, ShieldCheck, MessageSquare, ChevronDown, ChevronUp, ArrowRight } from "lucide-react";
 
 export function EducationalArticles() {
+  // Controle de expansão para a versão mobile
+  const [expandedId, setExpandedId] = useState<string | null>(null);
+
+  const toggleExpand = (id: string) => {
+    setExpandedId((prev) => (prev === id ? null : id));
+  };
+
   return (
-    <section id="artigos" className="py-24 sm:py-32 bg-[var(--bg-primary)] editorial-border-b">
+    <section id="artigos" className="py-20 sm:py-28 bg-[var(--bg-primary)] editorial-border-b overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Cabeçalho de Seção Editorial */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between pb-8 border-b border-[var(--border-subtle)]/30 mb-16 gap-4">
+        <div className="flex flex-col md:flex-row md:items-end justify-between pb-8 border-b border-[var(--border-subtle)]/30 mb-12 sm:mb-16 gap-4">
           <div>
             <div className="flex items-center gap-3 mb-3">
               <span className="bullet-indicator text-[var(--accent)] dark:text-emerald-400" />
@@ -19,67 +29,197 @@ export function EducationalArticles() {
             </h2>
           </div>
           <div className="max-w-md">
-            <p className="font-body text-base text-[var(--text-muted)] mb-2">
+            <p className="font-body text-sm sm:text-base text-[var(--text-muted)] mb-2">
               Artigos analíticos de caráter puramente pedagógico e informativo, elaborados segundo os preceitos do Provimento 205/2021 do CFOAB.
             </p>
             <div className="flex items-center gap-1.5 text-xs text-[var(--border-subtle)] font-heading uppercase tracking-wider">
-              <ShieldCheck className="w-3.5 h-3.5" />
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
               <span>Sem finalidade mercantil ou captação de clientela</span>
             </div>
           </div>
         </div>
 
-        {/* Lista Editorial de 3 Artigos */}
-        <div className="grid lg:grid-cols-3 gap-8">
-          {EDUCATIONAL_ARTICLES.map((art) => (
-            <article
-              key={art.id}
-              className="bg-[var(--bg-card)] p-8 sm:p-10 rounded-2xl border border-[var(--border-subtle)]/30 flex flex-col justify-between hover:border-[var(--border-subtle)] transition-colors duration-300"
+        {/* ===================== VERSÃO DESKTOP (3 Cards Completos + CTA WhatsApp Abaixo) ===================== */}
+        <div className="hidden lg:block space-y-10">
+          <div className="grid grid-cols-3 gap-8">
+            {EDUCATIONAL_ARTICLES.map((art) => (
+              <article
+                key={art.id}
+                className="bg-[var(--bg-card)] p-8 xl:p-10 rounded-3xl border border-[var(--border-subtle)]/35 flex flex-col justify-between hover:border-[var(--border-subtle)] transition-colors duration-300 shadow-sm"
+              >
+                <div>
+                  {/* Meta de Leitura */}
+                  <div className="flex items-center justify-between pb-4 border-b border-[var(--border-subtle)]/20 mb-6">
+                    <span className="font-heading text-xs uppercase tracking-widest text-[var(--accent)] dark:text-emerald-400 font-semibold">
+                      {art.category}
+                    </span>
+                    <div className="flex items-center gap-1 text-xs text-[var(--text-muted)] font-body">
+                      <Clock className="w-3.5 h-3.5 text-[var(--border-subtle)]" />
+                      <span>{art.readTime}</span>
+                    </div>
+                  </div>
+
+                  {/* Número e Título */}
+                  <div className="flex items-start gap-3 mb-4">
+                    <span className="font-heading text-xl text-[var(--border-subtle)] font-bold">
+                      {art.number}.
+                    </span>
+                    <h3 className="font-heading text-xl xl:text-2xl uppercase tracking-wide text-[var(--text-main)] leading-snug">
+                      {art.title}
+                    </h3>
+                  </div>
+
+                  {/* Sumário */}
+                  <p className="font-body text-sm text-[var(--text-main)]/90 italic font-medium mb-6 pb-4 border-b border-[var(--border-subtle)]/15 leading-relaxed">
+                    "{art.summary}"
+                  </p>
+
+                  {/* Conteúdo Explicativo Completo */}
+                  <div className="space-y-4 font-body text-sm text-[var(--text-muted)] leading-relaxed mb-8">
+                    {art.content.map((paragraph, pIdx) => (
+                      <p key={pIdx}>{paragraph}</p>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Disclaimer Ético CFOAB no Rodapé */}
+                <div className="pt-6 border-t border-[var(--border-subtle)]/20">
+                  <div className="flex items-start gap-2 text-[0.6875rem] text-[var(--border-subtle)] leading-relaxed font-body">
+                    <BookOpen className="w-4 h-4 flex-shrink-0 mt-0.5" />
+                    <span>{art.oabDisclaimer}</span>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          {/* CTA para o WhatsApp em baixo dos cards no modelo desktop */}
+          <div className="w-full p-8 sm:p-10 rounded-3xl bg-[var(--bg-card)] border border-[var(--border-subtle)]/40 shadow-md flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="space-y-1">
+              <span className="font-heading uppercase text-xs tracking-widest text-[var(--border-subtle)] block">
+                Atendimento Consultivo Personalizado
+              </span>
+              <h3 className="font-heading text-2xl sm:text-3xl uppercase tracking-wide text-[var(--text-main)]">
+                Deseja analisar a viabilidade do seu caso concreto?
+              </h3>
+              <p className="font-body text-sm text-[var(--text-muted)] max-w-2xl">
+                Nossa equipe jurídica está à disposição para analisar suas dúvidas contratuais, trabalhistas ou de execução com sigilo e rigor técnico.
+              </p>
+            </div>
+
+            <a
+              href={OFFICE_INFO.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-pill bg-[var(--accent)] text-white hover:bg-[var(--accent-hover)] gap-2.5 py-4 px-8 text-sm shadow-sm flex-shrink-0"
             >
-              <div>
-                {/* Meta de Leitura */}
-                <div className="flex items-center justify-between pb-4 border-b border-[var(--border-subtle)]/20 mb-6">
-                  <span className="font-heading text-xs uppercase tracking-widest text-[var(--accent)] dark:text-emerald-400 font-semibold">
+              <MessageSquare className="w-4 h-4" />
+              <span>Falar com Advogado via WhatsApp</span>
+              <ArrowRight className="w-4 h-4" />
+            </a>
+          </div>
+        </div>
+
+        {/* ===================== VERSÃO MOBILE (3 Cards Menores com Saber Mais e Conversar) ===================== */}
+        <div className="lg:hidden space-y-4">
+          {EDUCATIONAL_ARTICLES.map((art) => {
+            const isExpanded = expandedId === art.id;
+
+            return (
+              <article
+                key={art.id}
+                className="bg-[var(--bg-card)] rounded-2xl border border-[var(--border-subtle)]/35 p-5 shadow-xs transition-all duration-300"
+              >
+                {/* Meta Básica: Categoria e Tempo */}
+                <div className="flex items-center justify-between pb-3 border-b border-[var(--border-subtle)]/20 mb-3 text-xs">
+                  <span className="font-heading uppercase tracking-wider text-[var(--accent)] dark:text-emerald-400 font-semibold">
                     {art.category}
                   </span>
-                  <div className="flex items-center gap-1 text-xs text-[var(--text-muted)] font-body">
+                  <div className="flex items-center gap-1 text-[var(--text-muted)] font-body">
                     <Clock className="w-3.5 h-3.5 text-[var(--border-subtle)]" />
                     <span>{art.readTime}</span>
                   </div>
                 </div>
 
-                {/* Número e Título */}
-                <div className="flex items-start gap-3 mb-4">
-                  <span className="font-heading text-xl text-[var(--border-subtle)] font-bold">
+                {/* Título Básico */}
+                <div className="flex items-start gap-2.5 mb-4">
+                  <span className="font-heading text-base text-[var(--border-subtle)] font-bold">
                     {art.number}.
                   </span>
-                  <h3 className="font-heading text-xl sm:text-2xl uppercase tracking-wide text-[var(--text-main)] leading-snug">
+                  <h3 className="font-heading text-base uppercase tracking-wide text-[var(--text-main)] leading-snug">
                     {art.title}
                   </h3>
                 </div>
 
-                {/* Sumário */}
-                <p className="font-body text-sm text-[var(--text-main)]/90 italic font-medium mb-6 pb-4 border-b border-[var(--border-subtle)]/15 leading-relaxed">
-                  "{art.summary}"
-                </p>
+                {/* Conteúdo Expandido (Quando aberto) */}
+                {isExpanded && (
+                  <div className="pt-3 border-t border-[var(--border-subtle)]/20 space-y-4 mb-4 animate-in fade-in duration-200">
+                    <p className="font-body text-xs text-[var(--text-main)] italic font-medium leading-relaxed bg-[var(--bg-secondary)]/50 p-3 rounded-xl">
+                      "{art.summary}"
+                    </p>
+                    <div className="space-y-3 font-body text-xs text-[var(--text-muted)] leading-relaxed">
+                      {art.content.map((paragraph, pIdx) => (
+                        <p key={pIdx}>{paragraph}</p>
+                      ))}
+                    </div>
+                    <div className="text-[0.625rem] text-[var(--border-subtle)] font-body flex items-start gap-1.5 pt-2 border-t border-[var(--border-subtle)]/15">
+                      <BookOpen className="w-3.5 h-3.5 flex-shrink-0 mt-0.5" />
+                      <span>{art.oabDisclaimer}</span>
+                    </div>
+                  </div>
+                )}
 
-                {/* Conteúdo Explicativo Completo */}
-                <div className="space-y-4 font-body text-sm text-[var(--text-muted)] leading-relaxed mb-8">
-                  {art.content.map((paragraph, pIdx) => (
-                    <p key={pIdx}>{paragraph}</p>
-                  ))}
-                </div>
-              </div>
+                {/* Botões da Base do Card no Mobile */}
+                {!isExpanded ? (
+                  <div className="grid grid-cols-2 gap-2 pt-3 border-t border-[var(--border-subtle)]/20">
+                    {/* Botão Esquerdo: Saber Mais */}
+                    <button
+                      type="button"
+                      onClick={() => toggleExpand(art.id)}
+                      className="btn-pill py-2.5 px-3 text-xs border border-[var(--border-subtle)]/40 text-[var(--text-main)] hover:bg-[var(--bg-secondary)] gap-1 justify-center cursor-pointer"
+                    >
+                      <span>Saber Mais</span>
+                      <ChevronDown className="w-3.5 h-3.5 text-[var(--border-subtle)]" />
+                    </button>
 
-              {/* Disclaimer Ético CFOAB no Rodapé do Card */}
-              <div className="pt-6 border-t border-[var(--border-subtle)]/20">
-                <div className="flex items-start gap-2 text-[0.6875rem] text-[var(--border-subtle)] leading-relaxed font-body">
-                  <BookOpen className="w-4 h-4 flex-shrink-0 mt-0.5" />
-                  <span>{art.oabDisclaimer}</span>
-                </div>
-              </div>
-            </article>
-          ))}
+                    {/* Botão Direito: Conversar com Advogado */}
+                    <a
+                      href={`${OFFICE_INFO.whatsappUrl}&text=Ol%C3%A1%2C%20li%20o%20artigo%20sobre%20${encodeURIComponent(art.title)}%20e%20gostaria%20de%20informa%C3%A7%C3%B5es`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-pill py-2.5 px-2 text-[0.6875rem] bg-[var(--accent)] text-white hover:bg-[var(--accent-hover)] gap-1 justify-center text-center truncate"
+                    >
+                      <MessageSquare className="w-3 h-3 flex-shrink-0" />
+                      <span className="truncate">Conversar</span>
+                    </a>
+                  </div>
+                ) : (
+                  <div className="grid grid-cols-2 gap-2 pt-3 border-t border-[var(--border-subtle)]/20">
+                    {/* Botão Esquerdo: Voltar ao normal */}
+                    <button
+                      type="button"
+                      onClick={() => toggleExpand(art.id)}
+                      className="btn-pill py-2.5 px-3 text-xs border border-[var(--border-subtle)]/40 text-[var(--text-main)] hover:bg-[var(--bg-secondary)] gap-1 justify-center cursor-pointer"
+                    >
+                      <span>Voltar ao normal</span>
+                      <ChevronUp className="w-3.5 h-3.5 text-[var(--border-subtle)]" />
+                    </button>
+
+                    {/* Botão Direito: Conversar com Advogado */}
+                    <a
+                      href={`${OFFICE_INFO.whatsappUrl}&text=Ol%C3%A1%2C%20li%20o%20artigo%20sobre%20${encodeURIComponent(art.title)}%20e%20gostaria%20de%20informa%C3%A7%C3%B5es`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-pill py-2.5 px-2 text-[0.6875rem] bg-[var(--accent)] text-white hover:bg-[var(--accent-hover)] gap-1 justify-center text-center truncate"
+                    >
+                      <MessageSquare className="w-3 h-3 flex-shrink-0" />
+                      <span className="truncate">Conversar</span>
+                    </a>
+                  </div>
+                )}
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>
