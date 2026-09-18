@@ -59,7 +59,7 @@ export default function LinksPage() {
   ];
 
   return (
-    <main className="h-screen h-[100dvh] max-h-screen max-h-[100dvh] w-screen max-w-full overflow-hidden bg-[#F9FAFB] text-[#111827]">
+    <main className="min-h-[100dvh] lg:h-screen lg:max-h-screen lg:overflow-hidden w-screen max-w-full bg-[#F9FAFB] text-[#111827]">
       {/* ===================== VERSÃO DESKTOP (Split Screen 50/50 - Sem Scroll) ===================== */}
       <div className="hidden lg:grid lg:grid-cols-2 h-full w-full overflow-hidden">
         {/* LADO ESQUERDO: Fundo Escuro #0B0F14 com Logo Branca ocupando 40% da área */}
@@ -232,8 +232,8 @@ export default function LinksPage() {
         </div>
       </div>
 
-      {/* ===================== VERSÃO MOBILE (100dvh - Sem Scroll e Logo a 40%) ===================== */}
-      <div className="lg:hidden relative flex flex-col justify-between h-full max-h-[100dvh] w-full px-5 py-3 overflow-hidden bg-[#F9FAFB]">
+      {/* ===================== VERSÃO MOBILE (Bio Instagram Otimizada) ===================== */}
+      <div className="lg:hidden relative flex flex-col justify-between min-h-[100dvh] w-full px-5 py-5 overflow-y-auto bg-[#F9FAFB]">
         {/* Padrão geométrico suave */}
         <div className="absolute inset-0 pointer-events-none opacity-20">
           <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
@@ -247,17 +247,17 @@ export default function LinksPage() {
           </svg>
         </div>
 
-        {/* Topo Mobile com Logo Nova Ocupando 60% da Tela e Posicionada Mais para o Centro */}
-        <div className="relative z-10 flex flex-col items-center text-center pt-6 sm:pt-8 pb-2">
-          {/* Logo nova ocupando 60% da largura da tela */}
-          <div className="relative w-[60vw] max-w-[270px] h-16 sm:h-20 mb-3">
+        {/* Topo Mobile com Logo Nova com Dobro do Tamanho */}
+        <div className="relative z-10 flex flex-col items-center text-center pt-4 sm:pt-6 pb-2">
+          {/* Logo nova com o dobro do tamanho (largura e altura ampliadas) */}
+          <div className="relative w-[85vw] max-w-[360px] h-28 sm:h-36 mb-3">
             <Image
               src="/logo_nova_para_menu.png"
               alt="Diogo & Mazeiro Advogados e Associados"
               fill
               priority
               className="object-contain object-center"
-              sizes="60vw"
+              sizes="(max-width: 768px) 85vw, 360px"
             />
           </div>
 
