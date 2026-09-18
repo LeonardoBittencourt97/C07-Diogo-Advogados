@@ -69,26 +69,25 @@ export function Navbar() {
   return (
     <>
       {/* ========================================================================= */}
-      {/* 1. LOGO TOTALMENTE INDEPENDENTE (BLOCO AUTÔNOMO FORA DO HEADER DO MENU)   */}
-      {/* Mudar o tamanho ou posição da logo NÃO altera em nada a barra do menu     */}
+      {/* 1. LOGO MOBILE INDEPENDENTE (Camada autônoma preservada no mobile)        */}
       {/* ========================================================================= */}
-      <div className="fixed top-2 sm:top-3 left-3 sm:left-6 lg:left-8 z-50 pointer-events-none">
+      <div className="lg:hidden fixed top-2 left-3 z-50 pointer-events-none">
         <Link href="#inicio" className="flex items-center group focus:outline-none pointer-events-auto">
-          <div className="relative h-13 sm:h-20 lg:h-24 w-44 sm:w-72 lg:w-96 transition-transform duration-300 group-hover:scale-105">
+          <div className="relative h-13 w-44 transition-transform duration-300 group-hover:scale-105">
             <Image
               src={logoSrc}
               alt="Diogo & Mazeiro Advogados e Associados"
               fill
               priority
               className="object-contain object-left drop-shadow-md"
-              sizes="(max-width: 640px) 176px, 384px"
+              sizes="176px"
             />
           </div>
         </Link>
       </div>
 
       {/* ========================================================================= */}
-      {/* 2. MENU DE NAVEGAÇÃO (BARRA DEDICADA EXCLUSIVAMENTE AOS LINKS E AÇÕES)     */}
+      {/* 2. MENU DE NAVEGAÇÃO                                                      */}
       {/* ========================================================================= */}
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
@@ -99,8 +98,27 @@ export function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="relative min-h-[3.25rem] sm:min-h-[3.75rem] flex items-center justify-between gap-2 sm:gap-4">
-            {/* Espaçamento dedicado no fluxo para a logo flutuar sem cobrir os links no desktop */}
-            <div className="w-24 sm:w-56 lg:w-72 flex-shrink-0 pointer-events-none" />
+            {/* Espaçador no mobile para manter botões à direita */}
+            <div className="lg:hidden w-44 flex-shrink-0 pointer-events-none" />
+
+            {/* Logo no Desktop: Centralizada exatamente no meio entre a lateral esquerda e o começo do menu */}
+            <div className="hidden lg:flex items-center justify-center relative flex-shrink-0 w-80 xl:w-96 2xl:w-[26rem] h-10 pointer-events-none">
+              <Link
+                href="#inicio"
+                className="absolute top-1/2 -translate-y-1/2 flex items-center justify-center group focus:outline-none pointer-events-auto"
+              >
+                <div className="relative h-20 lg:h-24 w-72 lg:w-84 transition-transform duration-300 group-hover:scale-105">
+                  <Image
+                    src={logoSrc}
+                    alt="Diogo & Mazeiro Advogados e Associados"
+                    fill
+                    priority
+                    className="object-contain object-center drop-shadow-md"
+                    sizes="336px"
+                  />
+                </div>
+              </Link>
+            </div>
 
             {/* Menu Desktop Enxuto com Submenus */}
             <nav className="hidden lg:flex items-center gap-6 xl:gap-8 text-[0.8125rem] font-heading uppercase tracking-wider">

@@ -63,9 +63,9 @@ export function Hero() {
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-8 items-start">
           {/* Coluna Principal de Conteúdo */}
           <div className="lg:col-span-8 flex flex-col">
-            {/* Badge de OAB e Solidez (Sem caixa alta agressiva no mobile) */}
-            <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full border border-white/25 bg-black/40 backdrop-blur-md text-[0.7rem] sm:text-xs font-heading normal-case sm:uppercase tracking-normal sm:tracking-wider text-white w-fit mb-2.5 sm:mb-5 shadow-sm">
-              <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400" />
+            {/* Badge de OAB e Solidez (Oculto no mobile a pedido do usuário; exibido no desktop) */}
+            <div className="hidden sm:inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/25 bg-black/40 backdrop-blur-md text-xs font-heading uppercase tracking-wider text-white w-fit mb-5 shadow-sm">
+              <ShieldCheck className="w-4 h-4 text-emerald-400" />
               <span>{OFFICE_INFO.oabList}</span>
             </div>
 
