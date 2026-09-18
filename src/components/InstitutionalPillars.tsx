@@ -1,12 +1,48 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { Scale, Award, ShieldCheck } from "lucide-react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export function InstitutionalPillars() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    gsap.registerPlugin(ScrollTrigger);
+
+    const ctx = gsap.context(() => {
+      if (sectionRef.current) {
+        const pillarItems = sectionRef.current.querySelectorAll(".pillar-item");
+        if (pillarItems.length > 0) {
+          gsap.fromTo(
+            pillarItems,
+            { x: 80, opacity: 0 },
+            {
+              x: 0,
+              opacity: 1,
+              duration: 0.85,
+              stagger: 0.18,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: sectionRef.current,
+                start: "top 85%",
+              },
+            }
+          );
+        }
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <section
       id="pilares"
-      className="w-full border-b border-[var(--border-subtle)]/30 bg-[var(--bg-card)] py-10 sm:py-16 relative z-10 shadow-xs"
+      ref={sectionRef}
+      className="w-full border-b border-[var(--border-subtle)]/30 bg-[var(--bg-card)] py-10 sm:py-14 relative z-10 shadow-xs overflow-hidden"
     >
       <div className="w-full px-6 sm:px-12 lg:px-20 xl:px-28">
         {/* Cabeçalho Editorial Sutil */}
@@ -22,10 +58,10 @@ export function InstitutionalPillars() {
           </span>
         </div>
 
-        {/* Grade com os 3 Pilares em Divisões Horizontais / Verticais */}
+        {/* Grade com os 3 Pilares que realizam Fade-in da direita para a esquerda */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 divide-y md:divide-y-0 md:divide-x divide-[var(--border-subtle)]/30 w-full">
           {/* Pilar 1 */}
-          <div className="flex flex-col items-start px-0 md:px-6 pt-6 md:pt-0">
+          <div className="pillar-item flex flex-col items-start px-0 md:px-6 pt-6 md:pt-0 will-change-transform">
             <div className="flex items-center gap-2 mb-2 text-[var(--accent)] dark:text-emerald-400">
               <Award className="w-4 h-4" />
               <span className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">
@@ -41,7 +77,7 @@ export function InstitutionalPillars() {
           </div>
 
           {/* Pilar 2 */}
-          <div className="flex flex-col items-start px-0 md:px-6 pt-6 md:pt-0">
+          <div className="pillar-item flex flex-col items-start px-0 md:px-6 pt-6 md:pt-0 will-change-transform">
             <div className="flex items-center gap-2 mb-2 text-[var(--accent)] dark:text-emerald-400">
               <ShieldCheck className="w-4 h-4" />
               <span className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">
@@ -57,7 +93,7 @@ export function InstitutionalPillars() {
           </div>
 
           {/* Pilar 3 */}
-          <div className="flex flex-col items-start px-0 md:px-6 pt-6 md:pt-0">
+          <div className="pillar-item flex flex-col items-start px-0 md:px-6 pt-6 md:pt-0 will-change-transform">
             <div className="flex items-center gap-2 mb-2 text-[var(--accent)] dark:text-emerald-400">
               <Scale className="w-4 h-4" />
               <span className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">
