@@ -78,16 +78,16 @@ export function Navbar() {
       {/* ========================================================================= */}
       {/* 1. LOGO MOBILE INDEPENDENTE                                               */}
       {/* ========================================================================= */}
-      <div className="lg:hidden fixed top-2 left-3 z-50 pointer-events-none">
+      <div className="lg:hidden fixed top-2.5 left-2.5 sm:left-6 z-50 pointer-events-none">
         <Link href="#inicio" className="flex items-center group focus:outline-none pointer-events-auto">
-          <div className="relative h-13 w-44 transition-transform duration-300 group-hover:scale-105">
+          <div className="relative h-10 sm:h-13 w-36 sm:w-44 transition-transform duration-300 group-hover:scale-105">
             <Image
               src={currentLogo}
               alt="Diogo & Mazeiro Advogados e Associados"
               fill
               priority
               className="object-contain object-left drop-shadow-md"
-              sizes="176px"
+              sizes="144px"
             />
           </div>
         </Link>
@@ -100,13 +100,13 @@ export function Navbar() {
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           isScrolled
             ? "bg-[var(--bg-primary)]/95 backdrop-blur-md shadow-xs editorial-border-b py-2 sm:py-2.5"
-            : "bg-transparent py-3 sm:py-4"
+            : "bg-transparent py-2.5 sm:py-4"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-          <div className="relative min-h-[3.25rem] sm:min-h-[3.75rem] flex items-center justify-between gap-2 sm:gap-4">
-            {/* Espaçador no mobile para manter botões à direita */}
-            <div className="lg:hidden w-44 flex-shrink-0 pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-2.5 sm:px-6 lg:px-8">
+          <div className="relative min-h-[2.75rem] sm:min-h-[3.75rem] flex items-center justify-between gap-1.5 sm:gap-4">
+            {/* Espaçador no mobile para manter botões à direita com folga garantida */}
+            <div className="lg:hidden w-28 sm:w-36 flex-shrink-0 pointer-events-none" />
 
             {/* Logo no Desktop: Centralizada exatamente no meio entre a lateral esquerda e o começo do menu */}
             <div className="hidden lg:flex items-center justify-center relative flex-shrink-0 w-80 xl:w-96 2xl:w-[26rem] h-10 pointer-events-none">
@@ -281,7 +281,7 @@ export function Navbar() {
             </nav>
 
             {/* Ações à Direita: Toggle, WhatsApp e Botão Hambúrguer Mobile GARANTIDO */}
-            <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+            <div className="flex items-center gap-1.5 sm:gap-3 flex-shrink-0">
               <ThemeToggle />
 
               {/* Botão de WhatsApp: Adaptável para caber no mobile sem esconder o menu */}
@@ -289,18 +289,18 @@ export function Navbar() {
                 href={OFFICE_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-pill normal-case sm:uppercase bg-[var(--accent)] text-white hover:bg-[var(--accent-hover)] transition-all duration-300 gap-1.5 shadow-xs text-xs px-2.5 sm:px-5 py-2 sm:py-2.5 flex-shrink-0"
+                className="btn-pill normal-case sm:uppercase bg-[var(--accent)] text-white hover:bg-[var(--accent-hover)] transition-all duration-300 gap-1 sm:gap-1.5 shadow-xs text-[0.6875rem] sm:text-xs px-2 sm:px-4 py-1.5 sm:py-2.5 flex-shrink-0"
               >
                 <MessageSquare className="w-3.5 h-3.5" />
                 <span className="hidden sm:inline">WhatsApp</span>
                 <span className="sm:hidden text-[0.6875rem]">Whats</span>
               </a>
 
-              {/* Botão Menu Mobile PROEMINENTE - Sempre visível em telas menores que lg */}
+              {/* Botão Menu Mobile PROEMINENTE - Sempre visível com margem de segurança garantida */}
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(true)}
-                className={`lg:hidden flex items-center justify-center p-2 rounded-xl border transition-colors flex-shrink-0 cursor-pointer shadow-xs ${
+                className={`lg:hidden flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-xl border transition-colors flex-shrink-0 cursor-pointer shadow-xs ${
                   isScrolled
                     ? "border-[var(--border-subtle)]/50 bg-[var(--bg-card)] text-[var(--text-main)] hover:border-[var(--accent)]"
                     : "border-white/30 bg-black/40 backdrop-blur-md text-white hover:bg-black/60"
@@ -308,7 +308,7 @@ export function Navbar() {
                 aria-label="Abrir menu de navegação"
                 id="btn-mobile-menu"
               >
-                <Menu className="w-5 h-5" />
+                <Menu className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
             </div>
           </div>
