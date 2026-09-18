@@ -4,7 +4,6 @@ import { useEffect, useRef } from "react";
 import { Scale, Award, ShieldCheck } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { PillarsGeometrics } from "./GeometricBackgrounds";
 
 export function InstitutionalPillars() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -43,10 +42,9 @@ export function InstitutionalPillars() {
     <section
       id="pilares"
       ref={sectionRef}
-      className="w-full border-b border-[var(--border-subtle)]/30 bg-[var(--bg-card)] py-10 sm:py-14 relative shadow-xs overflow-hidden isolate"
+      className="w-full border-b border-[var(--border-subtle)]/30 bg-[var(--bg-card)] py-10 sm:py-14 relative shadow-xs overflow-hidden"
     >
-      <PillarsGeometrics />
-      <div className="w-full px-6 sm:px-12 lg:px-20 xl:px-28 relative z-10">
+      <div className="w-full px-6 sm:px-12 lg:px-20 xl:px-28">
         {/* Cabeçalho Editorial Sutil */}
         <div className="flex items-center justify-between pb-4 border-b border-[var(--border-subtle)]/25 mb-8 text-[var(--border-subtle)]">
           <div className="flex items-center gap-2.5">
