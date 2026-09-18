@@ -132,32 +132,32 @@ export function About() {
     <section
       id="sobre"
       ref={containerRef}
-      className="py-20 sm:py-28 bg-[var(--bg-secondary)]/40 editorial-border-b w-full"
+      className="py-14 sm:py-20 bg-[var(--bg-secondary)]/40 editorial-border-b w-full"
     >
       {/* Cabeçalho da Seção em Largura Total (Edge to Edge) */}
-      <div className="w-full px-6 sm:px-12 lg:px-20 xl:px-28 mb-14 sm:mb-20">
-        <div className="flex flex-col md:flex-row md:items-end justify-between pb-8 border-b border-[var(--border-subtle)]/30 gap-6">
+      <div className="w-full px-6 sm:px-12 lg:px-20 xl:px-28 mb-10 sm:mb-14">
+        <div className="flex flex-col md:flex-row md:items-end justify-between pb-6 border-b border-[var(--border-subtle)]/30 gap-6">
           <div>
-            <div className="flex items-center gap-3 mb-3">
+            <div className="flex items-center gap-3 mb-2">
               <span className="bullet-indicator text-[var(--accent)] dark:text-emerald-400" />
-              <span className="font-heading uppercase text-xs sm:text-sm tracking-widest text-[var(--border-subtle)] font-bold">
+              <span className="font-heading uppercase text-xs tracking-widest text-[var(--border-subtle)] font-bold">
                 01 / Tradição & Solidez
               </span>
             </div>
-            <h2 className="font-heading text-3xl sm:text-5xl lg:text-6xl uppercase tracking-tight text-[var(--text-main)]">
+            <h2 className="font-heading text-2xl sm:text-4xl lg:text-5xl uppercase tracking-tight text-[var(--text-main)]">
               Sobre o Escritório
             </h2>
           </div>
-          <p className="font-body text-base sm:text-lg text-[var(--text-muted)] max-w-xl leading-relaxed">
+          <p className="font-body text-sm sm:text-base text-[var(--text-muted)] max-w-xl leading-relaxed">
             Mais de 8 anos combinando rigor dogmático, visão de negócios e agilidade processual na defesa dos interesses de empresas e indivíduos.
           </p>
         </div>
       </div>
 
       {/* ========================================================================= */}
-      {/* A- STICKY STACKING CARDS EM LARGURA TOTAL DA PÁGINA (100% DA TELA)       */}
+      {/* A- STICKY STACKING CARDS COMPACTOS (Ocupando no máximo 60% da tela)        */}
       {/* ========================================================================= */}
-      <div className="w-full relative pb-12 sm:pb-20">
+      <div className="w-full relative pb-8 sm:pb-12">
         {cards.map((card, idx) => {
           const Icon = card.icon;
           const ref = cardRefs[idx];
@@ -166,71 +166,71 @@ export function About() {
           return (
             <div
               key={card.id}
-              className={`w-full ${!isLast ? "mb-[22vh] sm:mb-[28vh]" : "mb-0"}`}
+              className={`w-full ${!isLast ? "mb-[8vh] sm:mb-[10vh]" : "mb-0"}`}
             >
               <div
                 ref={ref}
                 className={`sticky ${card.topOffset} ${card.zIndex} w-full transition-shadow will-change-transform`}
               >
-                {/* O Card ocupa 100% da largura da janela, de ponta a ponta sem bordas laterais */}
+                {/* O Card ocupa 100% da largura com altura contida (máx 60% viewport no desktop) */}
                 <div
-                  className={`w-full ${card.accentBg} px-6 sm:px-12 lg:px-20 xl:px-28 py-12 sm:py-16 lg:py-20 border-y border-[var(--border-subtle)]/45 shadow-[0_-15px_40px_rgba(0,0,0,0.1)] dark:shadow-[0_-20px_50px_rgba(0,0,0,0.6)]`}
+                  className={`w-full ${card.accentBg} px-6 sm:px-12 lg:px-20 xl:px-28 py-6 sm:py-8 lg:py-10 border-y border-[var(--border-subtle)]/45 shadow-[0_-10px_30px_rgba(0,0,0,0.08)] dark:shadow-[0_-15px_40px_rgba(0,0,0,0.5)]`}
                 >
-                  <div className="grid lg:grid-cols-12 gap-8 lg:gap-14 items-start w-full">
-                    {/* Coluna 1: Número Monumental, Tag e Ícone */}
-                    <div className="lg:col-span-4 flex flex-col justify-between h-full border-b lg:border-b-0 lg:border-r border-[var(--border-subtle)]/30 pb-6 lg:pb-0 lg:pr-10">
+                  <div className="grid lg:grid-cols-12 gap-6 lg:gap-10 items-start w-full">
+                    {/* Coluna 1: Número, Tag e Ícone Compactos */}
+                    <div className="lg:col-span-4 flex flex-col justify-between h-full border-b lg:border-b-0 lg:border-r border-[var(--border-subtle)]/30 pb-4 lg:pb-0 lg:pr-8">
                       <div>
-                        <div className="flex items-center justify-between mb-6">
-                          <span className="font-heading text-6xl sm:text-7xl lg:text-8xl text-[var(--accent)] dark:text-emerald-400 font-bold">
+                        <div className="flex items-center justify-between mb-3">
+                          <span className="font-heading text-3xl sm:text-4xl lg:text-5xl text-[var(--accent)] dark:text-emerald-400 font-bold">
                             {card.number}.
                           </span>
-                          <div className="w-16 h-16 rounded-2xl border border-[var(--border-subtle)]/35 bg-[var(--bg-primary)] flex items-center justify-center text-[var(--accent)] dark:text-emerald-400 shadow-sm">
-                            <Icon className="w-8 h-8" />
+                          <div className="w-12 h-12 rounded-xl border border-[var(--border-subtle)]/35 bg-[var(--bg-primary)] flex items-center justify-center text-[var(--accent)] dark:text-emerald-400 shadow-2xs">
+                            <Icon className="w-6 h-6" />
                           </div>
                         </div>
-                        <span className="font-heading uppercase text-xs sm:text-sm tracking-widest text-[var(--border-subtle)] block mb-2 font-bold">
+                        <span className="font-heading uppercase text-xs tracking-wider text-[var(--border-subtle)] block mb-1 font-bold">
                           {card.tag}
                         </span>
-                        <h3 className="font-heading text-2xl sm:text-3xl lg:text-4xl uppercase tracking-wide text-[var(--text-main)] leading-tight">
+                        <h3 className="font-heading text-lg sm:text-xl lg:text-2xl normal-case font-semibold tracking-normal text-[var(--text-main)] leading-snug">
                           {card.title}
                         </h3>
                       </div>
 
-                      <div className="mt-8 pt-4 border-t border-[var(--border-subtle)]/20 hidden lg:block">
-                        <span className="font-heading uppercase text-xs tracking-wider text-[var(--border-subtle)] font-semibold">
+                      <div className="mt-4 pt-3 border-t border-[var(--border-subtle)]/20 hidden lg:block">
+                        <span className="font-heading uppercase text-[0.6875rem] tracking-wider text-[var(--border-subtle)] font-medium">
                           {card.commit}
                         </span>
                       </div>
                     </div>
 
-                    {/* Coluna 2: Descrição e Pilares Imersivos em Largura Total */}
+                    {/* Coluna 2: Descrição e Detalhes Enxutos */}
                     <div className="lg:col-span-8 flex flex-col justify-between h-full">
-                      <p className="font-body text-lg sm:text-xl lg:text-2xl text-[var(--text-main)] leading-relaxed mb-8 font-normal">
+                      <p className="font-body text-sm sm:text-base text-[var(--text-main)] leading-relaxed mb-4 font-normal">
                         {card.description}
                       </p>
 
-                      <div className="bg-[var(--bg-secondary)]/70 p-6 sm:p-10 rounded-2xl border border-[var(--border-subtle)]/30 mb-6">
-                        <div className="flex items-center gap-2 mb-5">
-                          <Scale className="w-4 h-4 text-[var(--accent)] dark:text-emerald-400" />
-                          <span className="font-heading uppercase text-xs sm:text-sm tracking-wider text-[var(--border-subtle)] font-bold">
+                      <div className="bg-[var(--bg-secondary)]/70 p-4 sm:p-6 rounded-xl border border-[var(--border-subtle)]/30 mb-4">
+                        <div className="flex items-center gap-2 mb-3">
+                          <Scale className="w-3.5 h-3.5 text-[var(--accent)] dark:text-emerald-400" />
+                          <span className="font-heading uppercase text-xs tracking-wider text-[var(--border-subtle)] font-bold">
                             Pilares Estruturantes de Atuação
                           </span>
                         </div>
-                        <ul className="grid sm:grid-cols-2 gap-4 sm:gap-6 font-body text-sm sm:text-base text-[var(--text-muted)]">
+                        <ul className="grid sm:grid-cols-2 gap-2.5 sm:gap-4 font-body text-xs sm:text-sm text-[var(--text-muted)]">
                           {card.details.map((detail, dIdx) => (
-                            <li key={dIdx} className="flex items-start gap-3">
-                              <CheckCircle2 className="w-5 h-5 text-[var(--accent)] dark:text-emerald-400 flex-shrink-0 mt-0.5" />
+                            <li key={dIdx} className="flex items-start gap-2.5">
+                              <CheckCircle2 className="w-4 h-4 text-[var(--accent)] dark:text-emerald-400 flex-shrink-0 mt-0.5" />
                               <span className="leading-snug">{detail}</span>
                             </li>
                           ))}
                         </ul>
                       </div>
 
-                      <div className="flex items-center justify-between text-xs sm:text-sm font-heading uppercase tracking-wider text-[var(--border-subtle)] pt-4 border-t border-[var(--border-subtle)]/20">
+                      <div className="flex items-center justify-between text-xs font-heading uppercase tracking-wider text-[var(--border-subtle)] pt-3 border-t border-[var(--border-subtle)]/20">
                         <span>Diogo & Mazeiro Advogados e Associados</span>
-                        <span className="inline-flex items-center gap-2 text-[var(--accent)] dark:text-emerald-400 font-bold">
+                        <span className="inline-flex items-center gap-1.5 text-[var(--accent)] dark:text-emerald-400 font-bold">
                           <span>Pilar {card.number} de 03</span>
-                          <ArrowUpRight className="w-4 h-4" />
+                          <ArrowUpRight className="w-3.5 h-3.5" />
                         </span>
                       </div>
                     </div>
@@ -243,23 +243,75 @@ export function About() {
       </div>
 
       {/* ========================================================================= */}
-      {/* B- INDICADORES NUMÉRICOS EM LARGURA TOTAL DA PÁGINA (100% DA TELA)        */}
+      {/* B- PILARES DE ATUAÇÃO ESTRATÉGICA (Integrados no padrão das métricas)     */}
+      {/* ========================================================================= */}
+      <div className="w-full mt-10 sm:mt-14 border-y border-[var(--border-subtle)]/40 bg-[var(--bg-card)] shadow-xs">
+        <div className="w-full px-6 sm:px-12 lg:px-20 xl:px-28 py-10 sm:py-14">
+          <div className="flex items-center gap-2.5 mb-8 pb-3 border-b border-[var(--border-subtle)]/25">
+            <Scale className="w-4 h-4 text-[var(--accent)] dark:text-emerald-400" />
+            <span className="font-heading uppercase text-xs tracking-widest text-[var(--border-subtle)] font-bold">
+              Pilares Institucionais de Atuação
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 divide-y md:divide-y-0 md:divide-x divide-[var(--border-subtle)]/30 w-full">
+            <div className="flex flex-col items-start px-0 md:px-6 pt-6 md:pt-0">
+              <span className="font-heading text-2xl sm:text-3xl lg:text-4xl text-[var(--accent)] dark:text-emerald-400 font-bold mb-1.5 tracking-tight">
+                +8 Anos
+              </span>
+              <span className="font-heading text-sm font-semibold text-[var(--text-main)] mb-1">
+                Experiência e Solidez Jurídica
+              </span>
+              <p className="font-body text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed">
+                Orientação contínua a empresas, instituições financeiras e famílias em todo o Paraná e no âmbito nacional.
+              </p>
+            </div>
+
+            <div className="flex flex-col items-start px-0 md:px-6 pt-6 md:pt-0">
+              <span className="font-heading text-2xl sm:text-3xl lg:text-4xl text-[var(--accent)] dark:text-emerald-400 font-bold mb-1.5 tracking-tight">
+                100% Técnico
+              </span>
+              <span className="font-heading text-sm font-semibold text-[var(--text-main)] mb-1">
+                Atendimento Direto com os Sócios
+              </span>
+              <p className="font-body text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed">
+                Condução dinâmica com teses individualizadas, comunicação transparente e respeito rigoroso ao CFOAB.
+              </p>
+            </div>
+
+            <div className="flex flex-col items-start px-0 md:px-6 pt-6 md:pt-0">
+              <span className="font-heading text-2xl sm:text-3xl lg:text-4xl text-[var(--accent)] dark:text-emerald-400 font-bold mb-1.5 tracking-tight">
+                Sede Própria
+              </span>
+              <span className="font-heading text-sm font-semibold text-[var(--text-main)] mb-1">
+                Estrutura em Curitiba / PR
+              </span>
+              <p className="font-body text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed">
+                Edifício Empresarial no Capão Raso com estrutura completa para audiências híbridas e reuniões presenciais.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ========================================================================= */}
+      {/* C- INDICADORES NUMÉRICOS READEQUADOS (Sem caixa alta, equilibrados)       */}
       {/* ========================================================================= */}
       <div
         ref={metricsRef}
-        className="w-full mt-16 sm:mt-24 border-y border-[var(--border-subtle)]/40 bg-[var(--bg-card)] shadow-lg"
+        className="w-full mt-10 sm:mt-14 border-y border-[var(--border-subtle)]/40 bg-[var(--bg-primary)] shadow-xs"
       >
-        <div className="w-full px-6 sm:px-12 lg:px-20 xl:px-28 py-16 sm:py-24">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 divide-y sm:divide-y-0 sm:divide-x divide-[var(--border-subtle)]/30 w-full">
+        <div className="w-full px-6 sm:px-12 lg:px-20 xl:px-28 py-10 sm:py-14">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 divide-y sm:divide-y-0 sm:divide-x divide-[var(--border-subtle)]/30 w-full">
             {OFFICE_INFO.metrics.map((m, idx) => (
               <div
                 key={idx}
-                className="metric-box flex flex-col items-center text-center px-4 pt-8 sm:pt-0 group"
+                className="metric-box flex flex-col items-center text-center px-4 pt-6 sm:pt-0 group"
               >
-                <span className="font-heading text-6xl sm:text-7xl lg:text-8xl xl:text-9xl text-[var(--accent)] dark:text-emerald-400 font-bold mb-3 tracking-tight group-hover:scale-105 transition-transform duration-500">
+                <span className="font-heading text-3xl sm:text-4xl lg:text-5xl text-[var(--accent)] dark:text-emerald-400 font-bold mb-1.5 tracking-tight group-hover:scale-105 transition-transform duration-300">
                   {m.value}
                 </span>
-                <span className="font-body text-base sm:text-lg lg:text-xl text-[var(--text-main)] font-medium max-w-xs leading-snug">
+                <span className="font-body text-xs sm:text-sm text-[var(--text-muted)] normal-case font-normal max-w-xs leading-snug">
                   {m.label}
                 </span>
               </div>

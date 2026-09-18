@@ -59,7 +59,14 @@ export function Navbar() {
     };
   }, [mobileMenuOpen]);
 
-  const logoSrc = "/logo_nova_para_menu.png";
+  const currentLogo = !isScrolled
+    ? "/logo_nova_escrita_branca.png"
+    : theme === "dark"
+    ? "/logo_nova_escrita_branca.png"
+    : "/logo_nova_para_menu.png";
+
+  const drawerLogo = theme === "dark" ? "/logo_nova_escrita_branca.png" : "/logo_nova_para_menu.png";
+
   const closeMobileMenu = () => {
     setMobileMenuOpen(false);
     setMobileOfficeOpen(false);
@@ -69,13 +76,13 @@ export function Navbar() {
   return (
     <>
       {/* ========================================================================= */}
-      {/* 1. LOGO MOBILE INDEPENDENTE (Camada autônoma preservada no mobile)        */}
+      {/* 1. LOGO MOBILE INDEPENDENTE                                               */}
       {/* ========================================================================= */}
       <div className="lg:hidden fixed top-2 left-3 z-50 pointer-events-none">
         <Link href="#inicio" className="flex items-center group focus:outline-none pointer-events-auto">
           <div className="relative h-13 w-44 transition-transform duration-300 group-hover:scale-105">
             <Image
-              src={logoSrc}
+              src={currentLogo}
               alt="Diogo & Mazeiro Advogados e Associados"
               fill
               priority
@@ -109,7 +116,7 @@ export function Navbar() {
               >
                 <div className="relative h-20 lg:h-24 w-72 lg:w-84 transition-transform duration-300 group-hover:scale-105">
                   <Image
-                    src={logoSrc}
+                    src={currentLogo}
                     alt="Diogo & Mazeiro Advogados e Associados"
                     fill
                     priority
@@ -120,11 +127,17 @@ export function Navbar() {
               </Link>
             </div>
 
-            {/* Menu Desktop Enxuto com Submenus */}
-            <nav className="hidden lg:flex items-center gap-6 xl:gap-8 text-[0.8125rem] font-heading uppercase tracking-wider">
+            {/* Menu Desktop Enxuto com Submenus (Texto Branco sobre a Hero escura, volta ao normal no scroll) */}
+            <nav
+              className={`hidden lg:flex items-center gap-6 xl:gap-8 text-[0.8125rem] font-heading uppercase tracking-wider transition-colors duration-300 ${
+                isScrolled ? "text-[var(--text-main)]/85" : "text-white/90"
+              }`}
+            >
               <a
                 href="#inicio"
-                className="text-[var(--text-main)]/85 hover:text-[var(--text-main)] transition-colors editorial-link"
+                className={`transition-colors editorial-link ${
+                  isScrolled ? "hover:text-[var(--text-main)]" : "hover:text-white"
+                }`}
               >
                 Início
               </a>
@@ -139,13 +152,21 @@ export function Navbar() {
                 <button
                   type="button"
                   onClick={() => setOfficeDropdownOpen(!officeDropdownOpen)}
-                  className="inline-flex items-center gap-1 text-[var(--text-main)]/85 hover:text-[var(--text-main)] transition-colors py-2 focus:outline-none cursor-pointer"
+                  className={`inline-flex items-center gap-1 transition-colors py-2 focus:outline-none cursor-pointer ${
+                    isScrolled ? "hover:text-[var(--text-main)]" : "hover:text-white"
+                  }`}
                   aria-expanded={officeDropdownOpen}
                 >
                   <span className="editorial-link">O Escritório</span>
                   <ChevronDown
-                    className={`w-3.5 h-3.5 text-[var(--border-subtle)] transition-transform duration-200 ${
-                      officeDropdownOpen ? "rotate-180 text-[var(--text-main)]" : ""
+                    className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                      officeDropdownOpen
+                        ? isScrolled
+                          ? "rotate-180 text-[var(--text-main)]"
+                          : "rotate-180 text-white"
+                        : isScrolled
+                        ? "text-[var(--border-subtle)]"
+                        : "text-white/70"
                     }`}
                   />
                 </button>
@@ -190,13 +211,21 @@ export function Navbar() {
                 <button
                   type="button"
                   onClick={() => setAreasDropdownOpen(!areasDropdownOpen)}
-                  className="inline-flex items-center gap-1 text-[var(--text-main)]/85 hover:text-[var(--text-main)] transition-colors py-2 focus:outline-none cursor-pointer"
+                  className={`inline-flex items-center gap-1 transition-colors py-2 focus:outline-none cursor-pointer ${
+                    isScrolled ? "hover:text-[var(--text-main)]" : "hover:text-white"
+                  }`}
                   aria-expanded={areasDropdownOpen}
                 >
                   <span className="editorial-link">Atuação & Artigos</span>
                   <ChevronDown
-                    className={`w-3.5 h-3.5 text-[var(--border-subtle)] transition-transform duration-200 ${
-                      areasDropdownOpen ? "rotate-180 text-[var(--text-main)]" : ""
+                    className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                      areasDropdownOpen
+                        ? isScrolled
+                          ? "rotate-180 text-[var(--text-main)]"
+                          : "rotate-180 text-white"
+                        : isScrolled
+                        ? "text-[var(--border-subtle)]"
+                        : "text-white/70"
                     }`}
                   />
                 </button>
@@ -225,21 +254,27 @@ export function Navbar() {
 
               <a
                 href="#avaliacoes"
-                className="text-[var(--text-main)]/85 hover:text-[var(--text-main)] transition-colors editorial-link"
+                className={`transition-colors editorial-link ${
+                  isScrolled ? "hover:text-[var(--text-main)]" : "hover:text-white"
+                }`}
               >
                 Avaliações
               </a>
 
               <a
                 href="#faq"
-                className="text-[var(--text-main)]/85 hover:text-[var(--text-main)] transition-colors editorial-link"
+                className={`transition-colors editorial-link ${
+                  isScrolled ? "hover:text-[var(--text-main)]" : "hover:text-white"
+                }`}
               >
                 FAQ
               </a>
 
               <a
                 href="#contato"
-                className="text-[var(--text-main)]/85 hover:text-[var(--text-main)] transition-colors editorial-link"
+                className={`transition-colors editorial-link ${
+                  isScrolled ? "hover:text-[var(--text-main)]" : "hover:text-white"
+                }`}
               >
                 Contato
               </a>
@@ -265,11 +300,15 @@ export function Navbar() {
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(true)}
-                className="lg:hidden flex items-center justify-center p-2 rounded-xl border border-[var(--border-subtle)]/50 bg-[var(--bg-card)] text-[var(--text-main)] hover:border-[var(--accent)] shadow-2xs transition-colors flex-shrink-0 cursor-pointer"
+                className={`lg:hidden flex items-center justify-center p-2 rounded-xl border transition-colors flex-shrink-0 cursor-pointer shadow-xs ${
+                  isScrolled
+                    ? "border-[var(--border-subtle)]/50 bg-[var(--bg-card)] text-[var(--text-main)] hover:border-[var(--accent)]"
+                    : "border-white/30 bg-black/40 backdrop-blur-md text-white hover:bg-black/60"
+                }`}
                 aria-label="Abrir menu de navegação"
                 id="btn-mobile-menu"
               >
-                <Menu className="w-5 h-5 text-[var(--text-main)]" />
+                <Menu className="w-5 h-5" />
               </button>
             </div>
           </div>
@@ -287,7 +326,7 @@ export function Navbar() {
           <div className="flex items-center justify-between pb-4 border-b border-[var(--border-subtle)]/30">
             <div className="relative h-14 sm:h-16 w-52 sm:w-64 max-w-[65vw]">
               <Image
-                src={logoSrc}
+                src={drawerLogo}
                 alt="Diogo & Mazeiro Advogados e Associados"
                 fill
                 priority
