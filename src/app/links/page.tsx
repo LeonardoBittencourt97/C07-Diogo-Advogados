@@ -88,17 +88,17 @@ export default function LinksPage() {
             </span>
           </div>
 
-          {/* Centro Esquerdo com Logo Antiga ocupando 60% do espaço */}
+          {/* Centro Esquerdo com Logo Antiga com o DOBRO do tamanho */}
           <div className="relative z-10 my-auto py-4 flex flex-col items-center text-center w-full">
-            {/* Logo antiga branca mantida no mesmo local, ampliada para 60% do espaço */}
-            <div className="relative w-[60%] min-w-[340px] max-w-[560px] h-28 xl:h-36 mb-6">
+            {/* Logo antiga branca mantida no mesmo local, com tamanho duplicado */}
+            <div className="relative w-[90%] min-w-[420px] max-w-[680px] h-48 xl:h-60 mb-6">
               <Image
                 src="/logo_semfundo_branca.png"
                 alt="Diogo & Mazeiro Advogados e Associados"
                 fill
                 priority
                 className="object-contain"
-                sizes="(max-width: 1280px) 420px, 560px"
+                sizes="(max-width: 1280px) 500px, 680px"
               />
             </div>
 
@@ -121,18 +121,18 @@ export default function LinksPage() {
         </div>
 
         {/* LADO DIREITO: Fundo Claro #F9FAFB com Ações e Especialidades (Sem Scroll) */}
-        <div className="bg-[#F9FAFB] flex flex-col justify-between p-8 xl:p-12 h-full overflow-hidden">
-          <div className="max-w-md mx-auto w-full flex flex-col justify-center h-full my-auto space-y-4">
-            {/* Cabeçalho com a Logo Nova centralizada na parte superior (ocupando 40% do espaço) */}
+        <div className="bg-[#F9FAFB] flex flex-col justify-between p-6 xl:p-10 h-full overflow-hidden">
+          <div className="max-w-md mx-auto w-full flex flex-col justify-center h-full my-auto space-y-3 xl:space-y-4">
+            {/* Cabeçalho com a Logo Nova centralizada com o DOBRO do tamanho */}
             <div className="flex flex-col items-center text-center">
-              <div className="relative w-[65%] max-w-[300px] xl:max-w-[340px] h-16 xl:h-20 mb-3">
+              <div className="relative w-[85%] max-w-[420px] xl:max-w-[480px] h-28 xl:h-36 mb-2">
                 <Image
                   src="/logo_nova_para_menu.png"
                   alt="Diogo & Mazeiro Advogados e Associados"
                   fill
                   priority
                   className="object-contain object-center"
-                  sizes="(max-width: 1280px) 300px, 340px"
+                  sizes="(max-width: 1280px) 420px, 480px"
                 />
               </div>
               <span className="font-heading uppercase text-[0.6875rem] tracking-widest text-[#7A9283] block mb-1">
@@ -247,10 +247,10 @@ export default function LinksPage() {
           </svg>
         </div>
 
-        {/* Topo Mobile com Logo Nova com Dobro do Tamanho */}
-        <div className="relative z-10 flex flex-col items-center text-center pt-4 sm:pt-6 pb-2">
-          {/* Logo nova com o dobro do tamanho (largura e altura ampliadas) */}
-          <div className="relative w-[85vw] max-w-[360px] h-28 sm:h-36 mb-3">
+        {/* Topo Mobile com Logo Posicionada Mais para Baixo / Centro da Página */}
+        <div className="relative z-10 flex flex-col items-center text-center pt-14 sm:pt-20 pb-4">
+          {/* Logo nova duplicada de tamanho */}
+          <div className="relative w-[85vw] max-w-[360px] h-28 sm:h-36 mb-4">
             <Image
               src="/logo_nova_para_menu.png"
               alt="Diogo & Mazeiro Advogados e Associados"
@@ -261,8 +261,8 @@ export default function LinksPage() {
             />
           </div>
 
-          <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full border border-[#7A9283]/40 bg-white/90 text-[0.625rem] font-heading uppercase tracking-wider text-[#143525] shadow-2xs">
-            <ShieldCheck className="w-3 h-3 text-emerald-700" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-[#7A9283]/40 bg-white/90 text-[0.625rem] font-heading uppercase tracking-wider text-[#143525] shadow-2xs">
+            <ShieldCheck className="w-3.5 h-3.5 text-emerald-700" />
             <span>{OFFICE_INFO.oabList}</span>
           </div>
         </div>
