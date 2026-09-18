@@ -88,17 +88,17 @@ export default function LinksPage() {
             </span>
           </div>
 
-          {/* Centro Esquerdo com Logo a 40% de largura da tela */}
+          {/* Centro Esquerdo com Logo Antiga ocupando 35% da tela */}
           <div className="relative z-10 my-auto py-4 flex flex-col items-center text-center w-full">
-            {/* Logo branca ocupando 40% da tela */}
-            <div className="relative w-[40%] min-w-[260px] max-w-[380px] h-20 xl:h-24 mb-6">
+            {/* Logo antiga branca mantida no mesmo local, ampliada para 35% da tela */}
+            <div className="relative w-[35vw] max-w-[480px] h-24 xl:h-32 mb-6">
               <Image
                 src="/logo_semfundo_branca.png"
                 alt="Diogo & Mazeiro Advogados e Associados"
                 fill
                 priority
                 className="object-contain"
-                sizes="(max-width: 1280px) 300px, 380px"
+                sizes="35vw"
               />
             </div>
 
@@ -123,8 +123,18 @@ export default function LinksPage() {
         {/* LADO DIREITO: Fundo Claro #F9FAFB com Ações e Especialidades (Sem Scroll) */}
         <div className="bg-[#F9FAFB] flex flex-col justify-between p-8 xl:p-12 h-full overflow-hidden">
           <div className="max-w-md mx-auto w-full flex flex-col justify-center h-full my-auto space-y-4">
-            {/* Cabeçalho */}
+            {/* Cabeçalho com a Logo Nova na parte superior direita em cima de Acesso Rápido */}
             <div>
+              <div className="relative w-48 xl:w-56 h-12 xl:h-14 mb-3">
+                <Image
+                  src="/logo_nova_para_menu.png"
+                  alt="Diogo & Mazeiro Advogados e Associados"
+                  fill
+                  priority
+                  className="object-contain object-left"
+                  sizes="224px"
+                />
+              </div>
               <span className="font-heading uppercase text-[0.6875rem] tracking-widest text-[#7A9283] block mb-1">
                 Acesso Rápido
               </span>
@@ -237,26 +247,22 @@ export default function LinksPage() {
           </svg>
         </div>
 
-        {/* Topo Mobile com Logo Ocupando 40% da Tela */}
-        <div className="relative z-10 flex flex-col items-center text-center pt-0.5">
-          {/* Logo preta ocupando 40% da tela */}
-          <div className="relative w-[40%] min-w-[150px] max-w-[200px] h-11 mb-1">
+        {/* Topo Mobile com Logo Nova Ocupando 40% da Tela */}
+        <div className="relative z-10 flex flex-col items-center text-center pt-1 pb-0.5">
+          {/* Logo nova ocupando 40% da largura da tela */}
+          <div className="relative w-[40vw] max-w-[220px] h-14 sm:h-16 mb-2">
             <Image
-              src="/logo_semfundo_preta.png"
+              src="/logo_nova_para_menu.png"
               alt="Diogo & Mazeiro Advogados e Associados"
               fill
               priority
               className="object-contain"
-              sizes="180px"
+              sizes="40vw"
             />
           </div>
 
-          <h1 className="font-heading text-xs uppercase tracking-wide text-[#111827] font-semibold leading-tight">
-            Diogo & Mazeiro Advogados
-          </h1>
-
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full border border-[#7A9283]/40 bg-white/90 text-[0.5625rem] font-heading uppercase tracking-wider text-[#143525] mt-1 shadow-2xs">
-            <ShieldCheck className="w-2.5 h-2.5 text-emerald-700" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full border border-[#7A9283]/40 bg-white/90 text-[0.625rem] font-heading uppercase tracking-wider text-[#143525] shadow-2xs">
+            <ShieldCheck className="w-3 h-3 text-emerald-700" />
             <span>{OFFICE_INFO.oabList}</span>
           </div>
         </div>
