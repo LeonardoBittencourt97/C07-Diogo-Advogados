@@ -8,7 +8,7 @@ export function Hero() {
   return (
     <section
       id="inicio"
-      className="relative min-h-screen w-full flex flex-col justify-center pt-28 pb-16 lg:pt-36 lg:pb-24 overflow-hidden editorial-border-b"
+      className="relative min-h-screen w-full flex flex-col justify-center pt-20 pb-8 sm:pt-32 sm:pb-16 lg:pt-36 lg:pb-24 overflow-hidden editorial-border-b"
     >
       {/* ========================================================================= */}
       {/* 1. IMAGEM DE FUNDO 100% DA TELA (MOBILE E DESKTOP DEDICADOS)               */}
@@ -48,59 +48,57 @@ export function Hero() {
       {/* ========================================================================= */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full my-auto">
         {/* Cabeçalho de seção editorial no estilo suíço */}
-        <div className="flex items-center justify-between py-2 border-b border-white/20 mb-8 sm:mb-12 text-white/90">
-          <div className="flex items-center gap-3">
+        <div className="flex items-center justify-between py-1.5 border-b border-white/20 mb-4 sm:mb-10 text-white/90">
+          <div className="flex items-center gap-2 sm:gap-3">
             <span className="bullet-indicator text-emerald-400" />
-            <span className="font-heading uppercase text-xs tracking-widest text-white/80 font-bold">
+            <span className="font-heading uppercase text-[0.6875rem] sm:text-xs tracking-widest text-white/80 font-bold">
               Curitiba / Paraná • Advocacia de Prestígio
             </span>
           </div>
-          <span className="font-heading text-xs uppercase tracking-widest text-white/70">
-            Fundado há mais de 8 anos
+          <span className="font-heading text-[0.6875rem] sm:text-xs uppercase tracking-widest text-white/70">
+            Fundado há +8 anos
           </span>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-start">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-8 items-start">
           {/* Coluna Principal de Texto */}
           <div className="lg:col-span-8 flex flex-col">
             {/* Badge de OAB e Solidez */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-white/25 bg-black/40 backdrop-blur-md text-xs font-heading uppercase tracking-wider text-white w-fit mb-6 shadow-sm">
-              <ShieldCheck className="w-4 h-4 text-emerald-400" />
+            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full border border-white/25 bg-black/40 backdrop-blur-md text-[0.6875rem] sm:text-xs font-heading uppercase tracking-wider text-white w-fit mb-3 sm:mb-5 shadow-sm">
+              <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400" />
               <span>{OFFICE_INFO.oabList}</span>
             </div>
 
-            {/* Título Principal Imponente em Oswald */}
-            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl uppercase leading-[1.02] tracking-tight text-white mb-6 drop-shadow-md">
+            {/* Título Principal Readequado (Sem caixa alta agressiva no mobile, leitura rápida) */}
+            <h1 className="font-heading text-2xl sm:text-4xl md:text-5xl lg:text-7xl leading-tight sm:leading-[1.04] tracking-tight text-white mb-3 sm:mb-5 drop-shadow-md">
               Soluções Jurídicas{" "}
               <span className="text-emerald-400">Estratégicas</span>{" "}
               com Segurança, Rigor Técnico e Transparência.
             </h1>
 
-            {/* Subtítulo Editorial Serifado */}
-            <p className="font-body text-lg sm:text-xl text-gray-200 max-w-2xl leading-relaxed mb-10 font-normal drop-shadow-sm">
-              Com mais de 8 anos de solidez em Curitiba e abrangência nacional, atuamos
-              no contencioso e consultivo empresarial, trabalhista, cível e em execuções de alto impacto,
-              assegurando defesa intransigente e previsibilidade aos nossos clientes.
+            {/* Subtítulo Editorial Serifado Readequado para caber perfeitamente no mobile */}
+            <p className="font-body text-xs sm:text-base lg:text-xl text-gray-200 max-w-2xl leading-relaxed mb-4 sm:mb-8 font-normal drop-shadow-sm">
+              Mais de 8 anos de solidez em Curitiba e atuação nacional no contencioso e consultivo empresarial, trabalhista, cível e execuções de alto impacto.
             </p>
 
-            {/* Ações de Conversão */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6 pt-2">
+            {/* Ações de Conversão: Ambos os botões com visibilidade imediata no mobile */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-6 pt-1 sm:pt-2 w-full max-w-lg">
               <a
                 href={OFFICE_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-pill bg-[#143525] hover:bg-[#0d2319] text-white border border-emerald-600/40 gap-3 py-4 px-8 text-base shadow-xl group transition-all"
+                className="btn-pill bg-[#143525] hover:bg-[#0d2319] text-white border border-emerald-600/40 gap-2 sm:gap-3 py-3 sm:py-4 px-5 sm:px-8 text-xs sm:text-base shadow-xl group transition-all text-center justify-center"
               >
-                <MessageSquare className="w-5 h-5 text-white/90 group-hover:scale-110 transition-transform" />
+                <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5 text-white/90 group-hover:scale-110 transition-transform flex-shrink-0" />
                 <span>Falar com Advogado via WhatsApp</span>
               </a>
 
               <a
                 href="#sobre"
-                className="btn-pill border border-white/35 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white gap-2 py-4 px-6 text-sm group transition-all"
+                className="btn-pill border border-white/35 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white gap-2 py-2.5 sm:py-4 px-5 sm:px-6 text-xs sm:text-sm group transition-all text-center justify-center"
               >
                 <span>Conhecer o Escritório</span>
-                <ChevronRight className="w-4 h-4 text-emerald-400 group-hover:translate-x-1 transition-transform" />
+                <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400 group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
           </div>
