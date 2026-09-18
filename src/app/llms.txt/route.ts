@@ -1,0 +1,38 @@
+import { NextResponse } from "next/server";
+
+export async function GET() {
+  const content = `# Diogo & Mazeiro Advogados e Associados
+
+> Soluções Jurídicas Estratégicas com Segurança, Rigor Técnico e Transparência. Mais de 8 anos de experiência e solidez jurídica em Curitiba/PR.
+
+## Dados Institucionais
+- Escritório: Diogo & Mazeiro Advogados e Associados
+- Endereço: Av. Winston Churchill, 1824 - 6º andar - sala 614 - Capão Raso, Curitiba - PR, CEP 81130-000
+- Telefone / WhatsApp: (41) 3242-8710
+- E-mail: diogoemazeiroassessoria@gmail.com
+- Horário de Atendimento: Segunda a Sexta, das 09:00 às 18:00
+
+## Corpo Jurídico
+- Dr. Lucas Diogo Pereira (OAB/PR 92.199) - Sócio Proprietário e Fundador. Pós-graduado em Direito Empresarial.
+- Dr. Bruno Almeida Mazeiro (OAB/PR 96.043) - Sócio Proprietário e Fundador. Pós-graduado em Direito do Trabalho.
+- Dra. Ariane Cristina Savi (OAB/PR 112.323) - Advogada Associada. Especialista em Direito do Trabalho e Execução Cível.
+
+## Áreas de Atuação
+- Direito Empresarial & Contratos
+- Direito do Trabalho (Contencioso e Preventivo)
+- Direito Cível & Reparação de Danos
+- Direito Imobiliário & Consumidor
+- Execução Cível & Recuperação de Créditos
+- Direito de Família & Sucessões
+
+## Conformidade Ética
+Atuação estritamente alinhada ao Código de Ética e Disciplina da OAB (Resolução CFOAB 02/2015) e ao Provimento 205/2021 do CFOAB.
+`;
+
+  return new NextResponse(content, {
+    headers: {
+      "Content-Type": "text/plain; charset=utf-8",
+      "Cache-Control": "public, max-age=86400",
+    },
+  });
+}

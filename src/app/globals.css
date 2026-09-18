@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+:root {
+  --bg-primary: #F9FAFB;
+  --bg-card: #FFFFFF;
+  --bg-secondary: #F3F4F6;
+  --text-main: #111827;
+  --text-muted: #4B5563;
+  --accent: #143525;
+  --accent-hover: #0d2319;
+  --accent-light: #EBF3EE;
+  --border-subtle: #7A9283;
+}
+
+html.dark {
+  --bg-primary: #0B0F14;
+  --bg-card: #121820;
+  --bg-secondary: #182029;
+  --text-main: #E5E7EB;
+  --text-muted: #9CA3AF;
+  --accent: #1F573B;
+  --accent-hover: #266948;
+  --accent-light: #162E22;
+  --border-subtle: #7A9283;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  font-family: var(--font-serif), Georgia, serif;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Tipografia de Títulos e Headers */
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: var(--font-oswald), sans-serif;
+  letter-spacing: 0.02em;
+}
+
+/* Tipografia Editorial de Leitura */
+.font-body {
+  font-family: var(--font-serif), Georgia, serif;
+}
+
+/* Bordas milimétricas editoriais inspiradas em davidlaxer.com */
+.editorial-border {
+  border-color: rgba(122, 146, 131, 0.25);
+}
+
+.editorial-border-b {
+  border-bottom: 1px solid rgba(122, 146, 131, 0.25);
+}
+
+.editorial-border-t {
+  border-top: 1px solid rgba(122, 146, 131, 0.25);
+}
+
+.editorial-border-l {
+  border-left: 1px solid rgba(122, 146, 131, 0.25);
+}
+
+.editorial-border-r {
+  border-right: 1px solid rgba(122, 146, 131, 0.25);
+}
+
+/* Indicador circular característico de estilo suíço/editorial */
+.bullet-indicator {
+  display: inline-block;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 9999px;
+  background-color: currentColor;
+  flex-shrink: 0;
+}
+
+/* Botão Pill refinado */
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  padding: 0.75rem 1.75rem;
+  font-family: var(--font-oswald), sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.875rem;
+  transition: all 0.3s cubic-bezier(0.3, 0.86, 0.36, 0.95);
+}
+
+/* Underline expansivo ao passar o mouse */
+.editorial-link {
+  position: relative;
+  display: inline-block;
+}
+
+.editorial-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s cubic-bezier(0.3, 0.86, 0.36, 0.95);
+}
+
+.editorial-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Animação suave para carrossel e pulso */
+@keyframes soft-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(20, 53, 37, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(20, 53, 37, 0);
+  }
+}
+
+.pulse-whatsapp {
+  animation: soft-pulse 2.8s infinite;
+}
+
+/* Ocultar barra de rolagem mantendo funcionalidade */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
