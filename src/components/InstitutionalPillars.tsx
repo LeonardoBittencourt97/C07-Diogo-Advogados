@@ -43,7 +43,7 @@ export function InstitutionalPillars() {
     <section
       id="pilares"
       ref={sectionRef}
-      className="w-full border-b border-[var(--border-subtle)]/30 bg-[var(--bg-card)] py-10 sm:py-14 relative shadow-xs overflow-hidden"
+      className="w-full border-b border-[var(--border-subtle)]/30 bg-[var(--bg-card)] py-10 sm:py-14 relative shadow-xs overflow-hidden isolate"
     >
       <PillarsGeometrics />
       <div className="w-full px-6 sm:px-12 lg:px-20 xl:px-28 relative z-10">

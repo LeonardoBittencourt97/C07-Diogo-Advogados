@@ -34,7 +34,7 @@ export function DynamicFaq() {
   };
 
   return (
-    <section id="faq" className="py-24 sm:py-32 bg-[var(--bg-secondary)]/40 editorial-border-b relative overflow-hidden">
+    <section id="faq" className="py-24 sm:py-32 bg-[var(--bg-secondary)]/40 editorial-border-b relative overflow-hidden isolate">
       <FaqGeometrics />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Cabeçalho de Seção Editorial */}

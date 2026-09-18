@@ -14,7 +14,7 @@ export function EducationalArticles() {
   };
 
   return (
-    <section id="artigos" className="py-20 sm:py-28 bg-[var(--bg-primary)] editorial-border-b w-full relative overflow-hidden">
+    <section id="artigos" className="py-20 sm:py-28 bg-[var(--bg-primary)] editorial-border-b w-full relative overflow-hidden isolate">
       <ArticlesGeometrics />
       <div className="w-full px-6 sm:px-12 lg:px-20 xl:px-28 relative z-10">
         {/* Cabeçalho de Seção Editorial em Largura Ampla */}

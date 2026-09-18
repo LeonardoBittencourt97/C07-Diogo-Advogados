@@ -133,7 +133,7 @@ export function About() {
     <section
       id="sobre"
       ref={containerRef}
-      className="py-14 sm:py-20 bg-[var(--bg-secondary)]/40 editorial-border-b w-full relative overflow-hidden"
+      className="py-14 sm:py-20 bg-[var(--bg-secondary)]/40 editorial-border-b w-full relative overflow-hidden isolate"
     >
       <AboutGeometrics />
       {/* Cabeçalho da Seção em Largura Total (Edge to Edge) */}

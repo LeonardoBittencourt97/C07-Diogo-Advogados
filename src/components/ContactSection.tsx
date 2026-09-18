@@ -5,7 +5,7 @@ import { ContactGeometrics } from "./GeometricBackgrounds";
 
 export function ContactSection() {
   return (
-    <section id="contato" className="py-24 sm:py-32 bg-[var(--bg-primary)] editorial-border-b relative overflow-hidden">
+    <section id="contato" className="py-24 sm:py-32 bg-[var(--bg-primary)] editorial-border-b relative overflow-hidden isolate">
       <ContactGeometrics />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Cabeçalho de Seção Editorial */}

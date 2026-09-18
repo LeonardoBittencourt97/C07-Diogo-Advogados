@@ -12,7 +12,7 @@ export function Footer() {
   const logoSrc = theme === "dark" ? "/logo_semfundo_branca.png" : "/logo_semfundo_preta.png";
 
   return (
-    <footer className="bg-[var(--bg-card)] border-t border-[var(--border-subtle)]/30 pt-16 pb-12 relative overflow-hidden">
+    <footer className="bg-[var(--bg-card)] border-t border-[var(--border-subtle)]/30 pt-16 pb-12 relative overflow-hidden isolate">
       <FooterGeometrics />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-12 gap-12 pb-12 border-b border-[var(--border-subtle)]/20">

@@ -11,7 +11,7 @@ export function PillarsGeometrics() {
   return (
     <div
       aria-hidden="true"
-      className="absolute inset-0 pointer-events-none select-none overflow-hidden z-0"
+      className="absolute inset-0 pointer-events-none select-none overflow-hidden -z-10"
     >
       <svg
         className="absolute -right-16 -top-20 w-[420px] h-[420px] sm:w-[540px] sm:h-[540px] text-[#143525] opacity-[0.14] dark:opacity-[0.22] dark:text-[#2d6a4a]"
@@ -46,7 +46,7 @@ export function AboutGeometrics() {
   return (
     <div
       aria-hidden="true"
-      className="absolute inset-0 pointer-events-none select-none overflow-hidden z-0"
+      className="absolute inset-0 pointer-events-none select-none overflow-hidden -z-10"
     >
       {/* Canto superior direito: Grandes Arcos Arquiteturais concêntricos */}
       <svg
@@ -85,7 +85,7 @@ export function TeamGeometrics() {
   return (
     <div
       aria-hidden="true"
-      className="absolute inset-0 pointer-events-none select-none overflow-hidden z-0"
+      className="absolute inset-0 pointer-events-none select-none overflow-hidden -z-10"
     >
       {/* Fundo superior direito */}
       <svg
@@ -124,7 +124,7 @@ export function PracticeAreasGeometrics() {
   return (
     <div
       aria-hidden="true"
-      className="absolute inset-0 pointer-events-none select-none overflow-hidden z-0"
+      className="absolute inset-0 pointer-events-none select-none overflow-hidden -z-10"
     >
       <svg
         className="absolute inset-0 w-full h-full text-[#143525] opacity-[0.10] dark:opacity-[0.18] dark:text-[#2d6a4a]"
@@ -162,7 +162,7 @@ export function ArticlesGeometrics() {
   return (
     <div
       aria-hidden="true"
-      className="absolute inset-0 pointer-events-none select-none overflow-hidden z-0"
+      className="absolute inset-0 pointer-events-none select-none overflow-hidden -z-10"
     >
       <svg
         className="absolute left-0 top-1/4 w-[500px] h-[500px] text-[#143525] opacity-[0.14] dark:opacity-[0.22] dark:text-[#2d6a4a]"
@@ -196,7 +196,7 @@ export function TestimonialsGeometrics() {
   return (
     <div
       aria-hidden="true"
-      className="absolute inset-0 pointer-events-none select-none overflow-hidden z-0"
+      className="absolute inset-0 pointer-events-none select-none overflow-hidden -z-10"
     >
       <svg
         className="absolute -left-28 -top-28 w-[600px] h-[600px] text-[#143525] opacity-[0.14] dark:opacity-[0.22] dark:text-[#2d6a4a]"
@@ -228,7 +228,7 @@ export function HowWeWorkGeometrics() {
   return (
     <div
       aria-hidden="true"
-      className="absolute inset-0 pointer-events-none select-none overflow-hidden z-0"
+      className="absolute inset-0 pointer-events-none select-none overflow-hidden -z-10"
     >
       <svg
         className="absolute right-0 top-16 w-[480px] h-[480px] text-[#143525] opacity-[0.14] dark:opacity-[0.22] dark:text-[#2d6a4a]"
@@ -264,7 +264,7 @@ export function FaqGeometrics() {
   return (
     <div
       aria-hidden="true"
-      className="absolute inset-0 pointer-events-none select-none overflow-hidden z-0"
+      className="absolute inset-0 pointer-events-none select-none overflow-hidden -z-10"
     >
       <svg
         className="absolute right-4 top-1/4 w-[460px] h-[460px] text-[#143525] opacity-[0.15] dark:opacity-[0.24] dark:text-[#2d6a4a]"
@@ -301,7 +301,7 @@ export function ContactGeometrics() {
   return (
     <div
       aria-hidden="true"
-      className="absolute inset-0 pointer-events-none select-none overflow-hidden z-0"
+      className="absolute inset-0 pointer-events-none select-none overflow-hidden -z-10"
     >
       <svg
         className="absolute right-0 top-12 w-[550px] h-[550px] text-[#143525] opacity-[0.15] dark:opacity-[0.24] dark:text-[#2d6a4a]"
@@ -340,7 +340,7 @@ export function FooterGeometrics() {
   return (
     <div
       aria-hidden="true"
-      className="absolute inset-0 pointer-events-none select-none overflow-hidden z-0"
+      className="absolute inset-0 pointer-events-none select-none overflow-hidden -z-10"
     >
       <svg
         className="absolute right-0 bottom-0 w-[600px] h-[350px] text-[#143525] opacity-[0.15] dark:opacity-[0.24] dark:text-[#2d6a4a]"

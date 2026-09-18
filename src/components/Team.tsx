@@ -154,7 +154,7 @@ export function Team() {
     <section
       id="equipe"
       ref={sectionRef}
-      className="py-14 sm:py-20 bg-[var(--bg-primary)] editorial-border-b overflow-hidden w-full relative"
+      className="py-14 sm:py-20 bg-[var(--bg-primary)] editorial-border-b overflow-hidden w-full relative isolate"
     >
       <TeamGeometrics />
       <div className="w-full px-6 sm:px-12 lg:px-20 xl:px-24 relative z-10">

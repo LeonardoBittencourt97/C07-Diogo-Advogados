@@ -4,7 +4,7 @@ import { HowWeWorkGeometrics } from "./GeometricBackgrounds";
 
 export function HowWeWork() {
   return (
-    <section id="processo" className="py-24 sm:py-32 bg-[var(--bg-primary)] editorial-border-b relative overflow-hidden">
+    <section id="processo" className="py-24 sm:py-32 bg-[var(--bg-primary)] editorial-border-b relative overflow-hidden isolate">
       <HowWeWorkGeometrics />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Cabeçalho de Seção Editorial */}

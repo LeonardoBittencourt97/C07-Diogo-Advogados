@@ -100,7 +100,7 @@ export function PracticeAreas() {
     <section
       id="areas"
       ref={sectionRef}
-      className="py-20 sm:py-28 bg-[var(--bg-secondary)]/40 editorial-border-b w-full relative overflow-hidden"
+      className="py-20 sm:py-28 bg-[var(--bg-secondary)]/40 editorial-border-b w-full relative overflow-hidden isolate"
     >
       <PracticeAreasGeometrics />
       {/* Cabeçalho de Seção em Largura Total */}
