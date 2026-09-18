@@ -59,7 +59,7 @@ export function Navbar() {
     };
   }, [mobileMenuOpen]);
 
-  const logoSrc = theme === "dark" ? "/logo_semfundo_branca.png" : "/logo_semfundo_preta.png";
+  const logoSrc = "/logo_nova_para_menu.png";
   const closeMobileMenu = () => {
     setMobileMenuOpen(false);
     setMobileOfficeOpen(false);
@@ -77,16 +77,16 @@ export function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between gap-2 sm:gap-4">
-            {/* Logotipo com tamanho calibrado para não espremer botões */}
+            {/* Logotipo com tamanho calibrado para a nova logo */}
             <Link href="#inicio" className="flex items-center group focus:outline-none flex-shrink-0">
-              <div className="relative h-9 sm:h-11 w-36 sm:w-52 transition-transform duration-300 group-hover:opacity-90">
+              <div className="relative h-10 sm:h-12 w-40 sm:w-56 transition-transform duration-300 group-hover:opacity-90">
                 <Image
                   src={logoSrc}
                   alt="Diogo & Mazeiro Advogados e Associados"
                   fill
                   priority
                   className="object-contain object-left"
-                  sizes="(max-width: 640px) 144px, 208px"
+                  sizes="(max-width: 640px) 160px, 224px"
                 />
               </div>
             </Link>
