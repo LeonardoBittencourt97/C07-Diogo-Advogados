@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { FAQ_CATEGORIES, FaqCategory } from "@/lib/data";
 import { Building2, Briefcase, Scale, FileCheck, ChevronDown, HelpCircle } from "lucide-react";
+import { FaqGeometrics } from "./GeometricBackgrounds";
 
 export function DynamicFaq() {
   const [activeTab, setActiveTab] = useState<FaqCategory["id"]>("empresarial");
@@ -33,8 +34,9 @@ export function DynamicFaq() {
   };
 
   return (
-    <section id="faq" className="py-24 sm:py-32 bg-[var(--bg-secondary)]/40 editorial-border-b">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="faq" className="py-24 sm:py-32 bg-[var(--bg-secondary)]/40 editorial-border-b relative overflow-hidden">
+      <FaqGeometrics />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Cabeçalho de Seção Editorial */}
         <div className="flex flex-col md:flex-row md:items-end justify-between pb-8 border-b border-[var(--border-subtle)]/30 mb-12 gap-4">
           <div>

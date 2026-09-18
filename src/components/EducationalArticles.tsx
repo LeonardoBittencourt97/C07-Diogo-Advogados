@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { EDUCATIONAL_ARTICLES, OFFICE_INFO } from "@/lib/data";
 import { BookOpen, Clock, ShieldCheck, MessageSquare, ChevronDown, ChevronUp, ArrowRight } from "lucide-react";
+import { ArticlesGeometrics } from "./GeometricBackgrounds";
 
 export function EducationalArticles() {
   // Controle de expansão para a versão mobile
@@ -13,8 +14,9 @@ export function EducationalArticles() {
   };
 
   return (
-    <section id="artigos" className="py-20 sm:py-28 bg-[var(--bg-primary)] editorial-border-b w-full">
-      <div className="w-full px-6 sm:px-12 lg:px-20 xl:px-28">
+    <section id="artigos" className="py-20 sm:py-28 bg-[var(--bg-primary)] editorial-border-b w-full relative overflow-hidden">
+      <ArticlesGeometrics />
+      <div className="w-full px-6 sm:px-12 lg:px-20 xl:px-28 relative z-10">
         {/* Cabeçalho de Seção Editorial em Largura Ampla */}
         <div className="flex flex-col md:flex-row md:items-end justify-between pb-8 border-b border-[var(--border-subtle)]/30 mb-12 sm:mb-16 gap-6">
           <div>

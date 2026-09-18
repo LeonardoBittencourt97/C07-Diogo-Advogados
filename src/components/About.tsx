@@ -5,6 +5,7 @@ import { OFFICE_INFO } from "@/lib/data";
 import { Compass, Eye, ShieldCheck, CheckCircle2, ArrowUpRight, Scale } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { AboutGeometrics } from "./GeometricBackgrounds";
 
 export function About() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -132,10 +133,11 @@ export function About() {
     <section
       id="sobre"
       ref={containerRef}
-      className="py-14 sm:py-20 bg-[var(--bg-secondary)]/40 editorial-border-b w-full"
+      className="py-14 sm:py-20 bg-[var(--bg-secondary)]/40 editorial-border-b w-full relative overflow-hidden"
     >
+      <AboutGeometrics />
       {/* Cabeçalho da Seção em Largura Total (Edge to Edge) */}
-      <div className="w-full px-6 sm:px-12 lg:px-20 xl:px-28 mb-10 sm:mb-14">
+      <div className="w-full px-6 sm:px-12 lg:px-20 xl:px-28 mb-10 sm:mb-14 relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between pb-6 border-b border-[var(--border-subtle)]/30 gap-6">
           <div>
             <div className="flex items-center gap-3 mb-2">
@@ -157,7 +159,7 @@ export function About() {
       {/* ========================================================================= */}
       {/* A- STICKY STACKING CARDS COMPACTOS (Ocupando no máximo 60% da tela)        */}
       {/* ========================================================================= */}
-      <div className="w-full relative pb-8 sm:pb-12">
+      <div className="w-full relative z-10 pb-8 sm:pb-12">
         {cards.map((card, idx) => {
           const Icon = card.icon;
           const ref = cardRefs[idx];

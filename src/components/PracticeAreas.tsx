@@ -5,6 +5,7 @@ import { PRACTICE_AREAS, OFFICE_INFO } from "@/lib/data";
 import { ArrowUpRight, Check } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { PracticeAreasGeometrics } from "./GeometricBackgrounds";
 
 export function PracticeAreas() {
   const topAreas = PRACTICE_AREAS.slice(0, 3); // 3 superiores: 01, 02, 03
@@ -99,10 +100,11 @@ export function PracticeAreas() {
     <section
       id="areas"
       ref={sectionRef}
-      className="py-20 sm:py-28 bg-[var(--bg-secondary)]/40 editorial-border-b w-full"
+      className="py-20 sm:py-28 bg-[var(--bg-secondary)]/40 editorial-border-b w-full relative overflow-hidden"
     >
+      <PracticeAreasGeometrics />
       {/* Cabeçalho de Seção em Largura Total */}
-      <div className="w-full px-6 sm:px-12 lg:px-20 xl:px-28 mb-14 sm:mb-20">
+      <div className="w-full px-6 sm:px-12 lg:px-20 xl:px-28 mb-14 sm:mb-20 relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between pb-8 border-b border-[var(--border-subtle)]/30 gap-6">
           <div>
             <div className="flex items-center gap-3 mb-3">
@@ -122,7 +124,7 @@ export function PracticeAreas() {
       </div>
 
       {/* ===================== VERSÃO DESKTOP (100% LARGURA TOTAL REAL + SOBREPOSIÇÃO NO SCROLL) ===================== */}
-      <div className="hidden lg:block w-full px-6 sm:px-12 lg:px-20 xl:px-28">
+      <div className="hidden lg:block w-full px-6 sm:px-12 lg:px-20 xl:px-28 relative z-10">
         {/* Linha 1: 3 Cards Superiores (Sticky que trava em top-[12vh] enquanto a linha 2 sobe) */}
         <div
           ref={topRowRef}
@@ -145,7 +147,7 @@ export function PracticeAreas() {
       </div>
 
       {/* ===================== VERSÃO MOBILE (Grid Vertical Limpo) ===================== */}
-      <div className="lg:hidden w-full px-4 sm:px-6 space-y-6">
+      <div className="lg:hidden w-full px-4 sm:px-6 space-y-6 relative z-10">
         {PRACTICE_AREAS.map((area) => (
           <div
             key={area.id}

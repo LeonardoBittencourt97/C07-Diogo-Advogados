@@ -6,6 +6,7 @@ import { LAWYERS, OFFICE_INFO } from "@/lib/data";
 import { ShieldCheck, Award, MessageSquare, ArrowRight } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { TeamGeometrics } from "./GeometricBackgrounds";
 
 export function Team() {
   const [lucas, bruno, ariane] = LAWYERS;
@@ -153,9 +154,10 @@ export function Team() {
     <section
       id="equipe"
       ref={sectionRef}
-      className="py-14 sm:py-20 bg-[var(--bg-primary)] editorial-border-b overflow-hidden w-full"
+      className="py-14 sm:py-20 bg-[var(--bg-primary)] editorial-border-b overflow-hidden w-full relative"
     >
-      <div className="w-full px-6 sm:px-12 lg:px-20 xl:px-24">
+      <TeamGeometrics />
+      <div className="w-full px-6 sm:px-12 lg:px-20 xl:px-24 relative z-10">
         {/* Cabeçalho de Seção Editorial */}
         <div className="flex flex-col md:flex-row md:items-end justify-between pb-6 border-b border-[var(--border-subtle)]/30 mb-10 sm:mb-14 gap-6">
           <div>

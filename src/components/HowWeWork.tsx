@@ -1,10 +1,12 @@
 import { HOW_WE_WORK, OFFICE_INFO } from "@/lib/data";
 import { ArrowRight, MessageSquare } from "lucide-react";
+import { HowWeWorkGeometrics } from "./GeometricBackgrounds";
 
 export function HowWeWork() {
   return (
-    <section id="processo" className="py-24 sm:py-32 bg-[var(--bg-primary)] editorial-border-b">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="processo" className="py-24 sm:py-32 bg-[var(--bg-primary)] editorial-border-b relative overflow-hidden">
+      <HowWeWorkGeometrics />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Cabeçalho de Seção Editorial */}
         <div className="flex flex-col md:flex-row md:items-end justify-between pb-8 border-b border-[var(--border-subtle)]/30 mb-16 gap-4">
           <div>

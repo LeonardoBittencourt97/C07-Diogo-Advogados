@@ -5,14 +5,16 @@ import Link from "next/link";
 import { useTheme } from "@/context/ThemeContext";
 import { OFFICE_INFO } from "@/lib/data";
 import { ShieldCheck } from "lucide-react";
+import { FooterGeometrics } from "./GeometricBackgrounds";
 
 export function Footer() {
   const { theme } = useTheme();
   const logoSrc = theme === "dark" ? "/logo_semfundo_branca.png" : "/logo_semfundo_preta.png";
 
   return (
-    <footer className="bg-[var(--bg-card)] border-t border-[var(--border-subtle)]/30 pt-16 pb-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="bg-[var(--bg-card)] border-t border-[var(--border-subtle)]/30 pt-16 pb-12 relative overflow-hidden">
+      <FooterGeometrics />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-12 gap-12 pb-12 border-b border-[var(--border-subtle)]/20">
           {/* Logo e Resumo Institucional (5 colunas) */}
           <div className="lg:col-span-5 flex flex-col justify-between">
