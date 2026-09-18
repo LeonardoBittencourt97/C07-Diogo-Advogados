@@ -7,7 +7,8 @@ import { InstagramIcon } from "@/components/SocialIcons";
 
 export const metadata: Metadata = {
   title: "Canais Oficiais & Links | Diogo & Mazeiro Advogados",
-  description: "Acesse rapidamente o WhatsApp oficial, Instagram, endereço e website institucional do Diogo & Mazeiro Advogados e Associados em Curitiba/PR.",
+  description:
+    "Acesse rapidamente o WhatsApp oficial, Instagram, endereço e website institucional do Diogo & Mazeiro Advogados e Associados em Curitiba/PR.",
   alternates: {
     canonical: "https://diogomazeiro.adv.br/links",
   },
@@ -50,114 +51,117 @@ export default function LinksPage() {
   ];
 
   const specialties = [
-    "Direito Empresarial & Contratos",
-    "Direito do Trabalho Corporativo",
-    "Direito Cível & Danos",
-    "Execução Cível & Recuperação de Ativos",
-    "Direito Imobiliário & Consumidor",
+    "Empresarial & Contratos",
+    "Trabalhista Corporativo",
+    "Cível & Danos",
+    "Execução Cível de Dívidas",
+    "Imobiliário & Consumidor",
   ];
 
   return (
-    <div className="min-h-screen bg-[#F9FAFB] text-[#111827] flex flex-col justify-between">
-      {/* ===================== VERSÃO DESKTOP (Split Screen 50/50) ===================== */}
-      <div className="hidden lg:grid lg:grid-cols-2 min-h-screen w-full">
-        {/* LADO ESQUERDO: Fundo Escuro #0B0F14 com Logo Branca e Grafismos Geométricos */}
-        <div className="relative bg-[#0B0F14] text-white flex flex-col justify-between p-12 xl:p-16 overflow-hidden border-r border-[#7A9283]/30">
-          {/* Padrão geométrico de linhas finas interconectadas em verde sálvia */}
+    <main className="h-screen h-[100dvh] max-h-screen max-h-[100dvh] w-screen max-w-full overflow-hidden bg-[#F9FAFB] text-[#111827]">
+      {/* ===================== VERSÃO DESKTOP (Split Screen 50/50 - Sem Scroll) ===================== */}
+      <div className="hidden lg:grid lg:grid-cols-2 h-full w-full overflow-hidden">
+        {/* LADO ESQUERDO: Fundo Escuro #0B0F14 com Logo Branca e Grafismos */}
+        <div className="relative bg-[#0B0F14] text-white flex flex-col justify-between p-8 xl:p-12 h-full overflow-hidden border-r border-[#7A9283]/30">
+          {/* Padrão geométrico sálvia */}
           <div className="absolute inset-0 pointer-events-none opacity-20">
             <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
               <defs>
-                <pattern id="grid-desktop" width="60" height="60" patternUnits="userSpaceOnUse">
-                  <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#7A9283" strokeWidth="0.75" />
-                  <circle cx="0" cy="0" r="2" fill="#7A9283" />
+                <pattern id="grid-desktop-fixed" width="50" height="50" patternUnits="userSpaceOnUse">
+                  <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#7A9283" strokeWidth="0.75" />
+                  <circle cx="0" cy="0" r="1.5" fill="#7A9283" />
                 </pattern>
               </defs>
-              <rect width="100%" height="100%" fill="url(#grid-desktop)" />
+              <rect width="100%" height="100%" fill="url(#grid-desktop-fixed)" />
             </svg>
           </div>
 
-          {/* Topo Esquerdo: Badge OAB */}
-          <div className="relative z-10">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#7A9283]/40 bg-white/5 backdrop-blur-md text-xs font-heading uppercase tracking-wider text-[#7A9283]">
-              <ShieldCheck className="w-4 h-4 text-emerald-400" />
+          {/* Topo Esquerdo */}
+          <div className="relative z-10 flex items-center justify-between">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#7A9283]/40 bg-white/5 backdrop-blur-md text-xs font-heading uppercase tracking-wider text-[#7A9283]">
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
               <span>{OFFICE_INFO.oabList}</span>
             </div>
+            <span className="text-[0.6875rem] font-heading uppercase tracking-widest text-[#7A9283]">
+              Curitiba - PR
+            </span>
           </div>
 
-          {/* Centro Esquerdo: Logo Branca Imponente e Frase Institucional */}
-          <div className="relative z-10 my-auto py-12 flex flex-col items-center text-center">
-            <div className="relative h-24 w-80 max-w-full mb-8">
+          {/* Centro Esquerdo */}
+          <div className="relative z-10 my-auto py-6 flex flex-col items-center text-center">
+            <div className="relative h-20 w-72 max-w-full mb-6">
               <Image
                 src="/logo_semfundo_branca.png"
                 alt="Diogo & Mazeiro Advogados e Associados"
                 fill
                 priority
                 className="object-contain"
-                sizes="320px"
+                sizes="288px"
               />
             </div>
 
-            <div className="h-0.5 w-16 bg-[#7A9283]/40 mb-6" />
+            <div className="h-0.5 w-12 bg-[#7A9283]/40 mb-5" />
 
-            <h1 className="font-heading text-2xl xl:text-3xl uppercase tracking-wide max-w-md leading-snug">
+            <h1 className="font-heading text-xl xl:text-2xl uppercase tracking-wide max-w-sm leading-snug">
               Soluções Jurídicas Estratégicas com Segurança e Rigor Técnico
             </h1>
 
-            <p className="font-body text-sm text-[#7A9283] max-w-sm mt-3 leading-relaxed">
-              Mais de 8 anos de experiência em assessoria corporativa e contenciosa em Curitiba/PR.
+            <p className="font-body text-xs xl:text-sm text-[#7A9283] max-w-xs mt-3 leading-relaxed">
+              Mais de 8 anos de solidez em consultoria corporativa e contencioso em Curitiba e âmbito nacional.
             </p>
           </div>
 
           {/* Rodapé Esquerdo */}
-          <div className="relative z-10 text-xs font-body text-[#7A9283]/80 flex items-center justify-between">
-            <span>Curitiba - Paraná</span>
+          <div className="relative z-10 text-[0.6875rem] font-body text-[#7A9283]/80 flex items-center justify-between border-t border-[#7A9283]/20 pt-3">
+            <span>Sede: Capão Raso, Curitiba/PR</span>
             <span>© 2025 Diogo & Mazeiro</span>
           </div>
         </div>
 
-        {/* LADO DIREITO: Fundo Claro #F9FAFB com Cards, Especialidades e Ações Rápidas */}
-        <div className="bg-[#F9FAFB] flex flex-col justify-between p-12 xl:p-16 overflow-y-auto">
-          <div className="max-w-md mx-auto w-full">
-            {/* Cabeçalho do Lado Direito */}
-            <div className="mb-8">
-              <span className="font-heading uppercase text-xs tracking-widest text-[#7A9283] block mb-2">
+        {/* LADO DIREITO: Fundo Claro #F9FAFB com Ações e Especialidades (Sem Scroll) */}
+        <div className="bg-[#F9FAFB] flex flex-col justify-between p-8 xl:p-12 h-full overflow-hidden">
+          <div className="max-w-md mx-auto w-full flex flex-col justify-center h-full my-auto space-y-5">
+            {/* Cabeçalho */}
+            <div>
+              <span className="font-heading uppercase text-[0.6875rem] tracking-widest text-[#7A9283] block mb-1">
                 Acesso Rápido
               </span>
-              <h2 className="font-heading text-3xl uppercase tracking-tight text-[#111827]">
+              <h2 className="font-heading text-2xl xl:text-3xl uppercase tracking-tight text-[#111827]">
                 Canais de Atendimento
               </h2>
-              <p className="font-body text-sm text-gray-600 mt-1">
-                Escolha abaixo o canal desejado para se comunicar com nossa equipe jurídica.
+              <p className="font-body text-xs text-gray-600 mt-0.5">
+                Escolha o canal desejado para se comunicar diretamente com nossa equipe.
               </p>
             </div>
 
-            {/* Lista de Botões de Ação */}
-            <div className="space-y-4 mb-10">
+            {/* 4 Botões de Ação */}
+            <div className="space-y-3">
               {quickLinks.map((item) => {
                 const Icon = item.icon;
                 const isInternal = item.href.startsWith("/");
-                const buttonClasses = `w-full p-4 sm:p-5 rounded-2xl flex items-center justify-between group transition-all duration-300 border ${
+                const buttonClasses = `w-full p-3.5 xl:p-4 rounded-xl flex items-center justify-between group transition-all duration-300 border ${
                   item.highlight
-                    ? "bg-[#143525] text-white border-[#143525] hover:bg-[#0d2319] shadow-md hover:shadow-lg"
-                    : "bg-white text-[#111827] border-[#7A9283]/30 hover:border-[#7A9283] shadow-2xs hover:shadow-sm"
+                    ? "bg-[#143525] text-white border-[#143525] hover:bg-[#0d2319] shadow-sm hover:shadow-md"
+                    : "bg-white text-[#111827] border-[#7A9283]/30 hover:border-[#7A9283] shadow-2xs hover:shadow-xs"
                 }`;
 
                 const content = (
                   <>
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-3.5">
                       <div
-                        className={`w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 ${
+                        className={`w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 ${
                           item.highlight ? "bg-white/10 text-white" : "bg-[#F3F4F6] text-[#143525]"
                         }`}
                       >
-                        <Icon className="w-5 h-5" />
+                        <Icon className="w-4 h-4" />
                       </div>
                       <div className="text-left">
-                        <span className="font-heading text-base uppercase tracking-wide block font-semibold leading-snug">
+                        <span className="font-heading text-sm uppercase tracking-wide block font-semibold leading-snug">
                           {item.title}
                         </span>
                         <span
-                          className={`font-body text-xs block ${
+                          className={`font-body text-[0.6875rem] block ${
                             item.highlight ? "text-white/80" : "text-gray-500"
                           }`}
                         >
@@ -166,7 +170,7 @@ export default function LinksPage() {
                       </div>
                     </div>
                     <ArrowUpRight
-                      className={`w-5 h-5 flex-shrink-0 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 ${
+                      className={`w-4 h-4 flex-shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 ${
                         item.highlight ? "text-white/80" : "text-[#7A9283]"
                       }`}
                     />
@@ -192,16 +196,16 @@ export default function LinksPage() {
             </div>
 
             {/* Card de Especialidades */}
-            <div className="p-6 rounded-2xl border border-[#7A9283]/30 bg-white">
-              <div className="flex items-center gap-2 text-xs uppercase tracking-wider font-heading text-[#7A9283] mb-3">
-                <Scale className="w-4 h-4" />
+            <div className="p-4 rounded-xl border border-[#7A9283]/30 bg-white shadow-2xs">
+              <div className="flex items-center gap-1.5 text-[0.6875rem] uppercase tracking-wider font-heading text-[#7A9283] mb-2">
+                <Scale className="w-3.5 h-3.5" />
                 <span>Especialidades Jurídicas</span>
               </div>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-1.5">
                 {specialties.map((spec, sIdx) => (
                   <span
                     key={sIdx}
-                    className="px-3 py-1 rounded-md text-xs font-body bg-[#F3F4F6] text-gray-700 border border-[#7A9283]/20"
+                    className="px-2.5 py-0.5 rounded-md text-[0.6875rem] font-body bg-[#F3F4F6] text-gray-700 border border-[#7A9283]/20"
                   >
                     {spec}
                   </span>
@@ -211,133 +215,123 @@ export default function LinksPage() {
           </div>
 
           {/* Rodapé Direito */}
-          <div className="text-center pt-8 border-t border-[#7A9283]/20 text-xs font-body text-gray-500">
+          <div className="text-center text-[0.6875rem] font-body text-gray-500 pt-2 border-t border-[#7A9283]/20">
             {OFFICE_INFO.address}
           </div>
         </div>
       </div>
 
-      {/* ===================== VERSÃO MOBILE ===================== */}
-      <div className="lg:hidden relative flex flex-col justify-between min-h-screen px-6 py-10 bg-[#F9FAFB]">
-        {/* Padrão geométrico de linhas finas interconectadas em verde sálvia */}
+      {/* ===================== VERSÃO MOBILE (100dvh - Sem Scroll) ===================== */}
+      <div className="lg:hidden relative flex flex-col justify-between h-full max-h-[100dvh] w-full px-5 py-4 overflow-hidden bg-[#F9FAFB]">
+        {/* Padrão geométrico suave */}
         <div className="absolute inset-0 pointer-events-none opacity-20">
           <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <pattern id="grid-mobile" width="40" height="40" patternUnits="userSpaceOnUse">
-                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#7A9283" strokeWidth="0.5" />
-                <circle cx="0" cy="0" r="1.5" fill="#7A9283" />
+              <pattern id="grid-mobile-fixed" width="35" height="35" patternUnits="userSpaceOnUse">
+                <path d="M 35 0 L 0 0 0 35" fill="none" stroke="#7A9283" strokeWidth="0.5" />
+                <circle cx="0" cy="0" r="1.2" fill="#7A9283" />
               </pattern>
             </defs>
-            <rect width="100%" height="100%" fill="url(#grid-mobile)" />
+            <rect width="100%" height="100%" fill="url(#grid-mobile-fixed)" />
           </svg>
         </div>
 
-        <div className="relative z-10 flex flex-col items-center text-center">
-          {/* Logo preta no topo (aproximadamente 35% de largura) */}
-          <div className="relative w-[45%] max-w-[170px] h-14 mb-4">
+        {/* Topo Mobile */}
+        <div className="relative z-10 flex flex-col items-center text-center pt-1">
+          {/* Logo preta proporcional (35% da largura da tela) */}
+          <div className="relative w-[35%] max-w-[140px] h-10 mb-1.5">
             <Image
               src="/logo_semfundo_preta.png"
               alt="Diogo & Mazeiro Advogados e Associados"
               fill
               priority
               className="object-contain"
-              sizes="170px"
+              sizes="140px"
             />
           </div>
 
-          {/* Nome do Escritório */}
-          <h1 className="font-heading text-lg sm:text-xl uppercase tracking-wide text-[#111827] font-semibold mb-2">
+          <h1 className="font-heading text-sm uppercase tracking-wide text-[#111827] font-semibold leading-tight">
             Diogo & Mazeiro Advogados
           </h1>
 
-          {/* Badge das OABs */}
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-[#7A9283]/40 bg-white/90 text-[0.6875rem] font-heading uppercase tracking-wider text-[#143525] mb-6 shadow-2xs">
-            <ShieldCheck className="w-3.5 h-3.5 text-emerald-700" />
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full border border-[#7A9283]/40 bg-white/90 text-[0.625rem] font-heading uppercase tracking-wider text-[#143525] mt-1 shadow-2xs">
+            <ShieldCheck className="w-3 h-3 text-emerald-700" />
             <span>{OFFICE_INFO.oabList}</span>
           </div>
+        </div>
 
-          {/* Subtítulo */}
-          <p className="font-body text-xs text-gray-600 max-w-xs mb-8">
-            Soluções Jurídicas Estratégicas em Curitiba/PR com mais de 8 anos de experiência corporativa.
-          </p>
+        {/* Centro Mobile: 4 Botões de Ação Compactos */}
+        <div className="relative z-10 w-full max-w-xs mx-auto space-y-2.5 my-auto py-2">
+          {quickLinks.map((item) => {
+            const Icon = item.icon;
+            const isInternal = item.href.startsWith("/");
+            const buttonClasses = `w-full py-2.5 px-3 rounded-xl flex items-center justify-between group transition-all duration-300 border ${
+              item.highlight
+                ? "bg-[#143525] text-white border-[#143525] shadow-sm"
+                : "bg-white text-[#111827] border-[#7A9283]/35 shadow-2xs"
+            }`;
 
-          {/* Botões Destacados Mobile */}
-          <div className="w-full space-y-3.5 max-w-sm mb-8">
-            {quickLinks.map((item) => {
-              const Icon = item.icon;
-              const isInternal = item.href.startsWith("/");
-              const buttonClasses = `w-full p-4 rounded-2xl flex items-center justify-between group transition-all duration-300 border ${
-                item.highlight
-                  ? "bg-[#143525] text-white border-[#143525] shadow-md"
-                  : "bg-white text-[#111827] border-[#7A9283]/35 shadow-2xs hover:border-[#7A9283]"
-              }`;
-
-              const content = (
-                <>
-                  <div className="flex items-center gap-3.5 text-left">
-                    <div
-                      className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${
-                        item.highlight ? "bg-white/10 text-white" : "bg-[#F3F4F6] text-[#143525]"
+            const content = (
+              <>
+                <div className="flex items-center gap-2.5 text-left">
+                  <div
+                    className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${
+                      item.highlight ? "bg-white/15 text-white" : "bg-[#F3F4F6] text-[#143525]"
+                    }`}
+                  >
+                    <Icon className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <span className="font-heading text-xs uppercase tracking-wide block font-semibold leading-tight">
+                      {item.title}
+                    </span>
+                    <span
+                      className={`font-body text-[0.5625rem] block leading-tight ${
+                        item.highlight ? "text-white/80" : "text-gray-500"
                       }`}
                     >
-                      <Icon className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <span className="font-heading text-sm uppercase tracking-wide block font-semibold">
-                        {item.title}
-                      </span>
-                      <span
-                        className={`font-body text-[0.6875rem] block ${
-                          item.highlight ? "text-white/80" : "text-gray-500"
-                        }`}
-                      >
-                        {item.subtitle}
-                      </span>
-                    </div>
+                      {item.subtitle}
+                    </span>
                   </div>
-                  <ArrowUpRight
-                    className={`w-4 h-4 flex-shrink-0 ${
-                      item.highlight ? "text-white/80" : "text-[#7A9283]"
-                    }`}
-                  />
-                </>
-              );
+                </div>
+                <ArrowUpRight
+                  className={`w-3.5 h-3.5 flex-shrink-0 ${
+                    item.highlight ? "text-white/80" : "text-[#7A9283]"
+                  }`}
+                />
+              </>
+            );
 
-              return isInternal ? (
-                <Link key={item.id} href={item.href} className={buttonClasses}>
-                  {content}
-                </Link>
-              ) : (
-                <a
-                  key={item.id}
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={buttonClasses}
-                >
-                  {content}
-                </a>
-              );
-            })}
-          </div>
-
-          {/* Especialidades no Mobile */}
-          <div className="w-full max-w-sm p-4 rounded-2xl bg-white border border-[#7A9283]/30 text-left mb-6">
-            <span className="font-heading uppercase text-[0.6875rem] tracking-wider text-[#7A9283] block mb-2">
-              Áreas de Atuação
-            </span>
-            <p className="font-body text-xs text-gray-600 leading-relaxed">
-              Empresarial • Trabalhista • Cível • Execuções de Dívidas • Imobiliário
-            </p>
-          </div>
+            return isInternal ? (
+              <Link key={item.id} href={item.href} className={buttonClasses}>
+                {content}
+              </Link>
+            ) : (
+              <a
+                key={item.id}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={buttonClasses}
+              >
+                {content}
+              </a>
+            );
+          })}
         </div>
 
-        {/* Rodapé Mobile */}
-        <div className="relative z-10 text-center pt-6 border-t border-[#7A9283]/20 font-body text-[0.6875rem] text-gray-500">
-          <p>© 2025 Diogo & Mazeiro Advogados e Associados</p>
-          <p className="text-[0.625rem] text-[#7A9283] mt-0.5">{OFFICE_INFO.addressShort}</p>
+        {/* Rodapé Mobile com Especialidades e Copyright */}
+        <div className="relative z-10 text-center space-y-1 pb-1">
+          <div className="w-full max-w-xs mx-auto py-1.5 px-2.5 rounded-lg bg-white/80 border border-[#7A9283]/20">
+            <span className="font-body text-[0.5625rem] text-gray-600 block truncate">
+              Empresarial • Trabalhista • Cível • Execução • Imobiliário
+            </span>
+          </div>
+          <p className="font-body text-[0.5625rem] text-gray-500">
+            © 2025 Diogo & Mazeiro Advogados • Curitiba/PR
+          </p>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
